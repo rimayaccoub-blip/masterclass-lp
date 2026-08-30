@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ماستر كلاس خريطة الدخل | ريما يعقوب</title>
+<title>REVENUE MAP · ماستر كلاس خريطة الدخل | ريما يعقوب</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
@@ -67,6 +67,11 @@ h3{font-size:clamp(19px,2.4vw,23px)}
 .hero{background:linear-gradient(180deg,var(--cream2),var(--cream));padding:60px 0 70px;
   position:relative;overflow:hidden}
 .hgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.brand{display:flex;align-items:center;gap:14px;direction:ltr;justify-content:flex-end;
+  font-size:clamp(15px,1.9vw,19px);font-weight:800;letter-spacing:5px;
+  color:var(--gold);margin-bottom:14px}
+.brand span{white-space:nowrap}
+.brand::before{content:"";height:2px;flex:1;max-width:90px;background:var(--gold);opacity:.5}
 .kicker{display:inline-flex;gap:8px;align-items:center;background:var(--navy);color:var(--gold2);
   border-radius:100px;padding:7px 18px;font-size:13px;font-weight:800;margin-bottom:22px;letter-spacing:.5px}
 .hero h1 span{color:var(--navy2);position:relative;white-space:nowrap}
@@ -235,6 +240,8 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
 <section class="hero">
   <div class="wrap hgrid">
     <div>
+      <div class="brand"><span>REVENUE MAP</span></div>
+
       <div class="kicker">ماستر كلاس مجاني · مقاعد محدودة</div>
       <h1>من وين رح يجي دخلك <span>الشهر الجاي؟</span></h1>
       <p class="lead">
