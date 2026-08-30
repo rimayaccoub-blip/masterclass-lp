@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ماستر كلاس خريطة الدخل | ريما يعقوب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '914783969729003');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=914783969729003&ev=PageView&noscript=1" alt=""/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+:root{
+  --cream:#F7F2E9;      /* خلفية بيج فاتح */
+  --cream2:#EFE5D6;     /* بيج أغمق */
+  --sand:#E3D5BE;       /* حدود بيج */
+  --navy:#152742;       /* كحلي عميق */
+  --navy2:#1E3A63;      /* كحلي فاتح */
+  --navy3:#2C4E7E;
+  --gold:#C09A54;       /* ذهبي/تان */
+  --gold2:#E0C089;
+  --ink:#152742;
+  --mut:#5A6A80;
+  --white:#FFFFFF;
+  --max:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:Almarai,system-ui,sans-serif;
+  line-height:1.85;font-size:17px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+section{padding:76px 0}
+h1,h2,h3,h4{line-height:1.32;font-weight:800}
+h1{font-size:clamp(32px,6vw,60px);letter-spacing:-.5px}
+h2{font-size:clamp(25px,4vw,40px);margin-bottom:14px}
+h3{font-size:clamp(19px,2.4vw,23px)}
+.lead{color:var(--mut);font-size:clamp(17px,2vw,20px)}
+.eyebrow{color:var(--gold);font-weight:800;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.gold{color:var(--gold)}
+.dark{background:var(--navy);color:#EEF3FA}
+.dark h2,.dark h3{color:#fff}
+.dark .lead{color:#B8C6DA}
+.dark .eyebrow{color:var(--gold2)}
+
+/* ===== شريط التاريخ ===== */
+.bar{position:sticky;top:0;z-index:60;background:var(--navy);color:#EEF3FA;
+  display:flex;gap:8px 28px;justify-content:center;align-items:center;flex-wrap:wrap;
+  padding:11px 18px;font-weight:700;font-size:15px;border-bottom:2px solid var(--gold)}
+
+/* ===== هيرو ===== */
+.hero{background:linear-gradient(180deg,var(--cream2),var(--cream));padding:60px 0 70px;
+  position:relative;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.kicker{display:inline-flex;gap:8px;align-items:center;background:var(--navy);color:var(--gold2);
+  border-radius:100px;padding:7px 18px;font-size:13px;font-weight:800;margin-bottom:22px;letter-spacing:.5px}
+.hero h1 span{color:var(--navy2);position:relative;white-space:nowrap}
+.hero h1 span::after{content:"";position:absolute;right:0;left:0;bottom:4px;height:12px;
+  background:var(--gold2);opacity:.55;z-index:-1;border-radius:3px}
+.hero .lead{margin-top:22px;max-width:50ch}
+.portrait{border-radius:20px;overflow:hidden;border:6px solid var(--white);
+  box-shadow:0 30px 70px rgba(21,39,66,.22);aspect-ratio:4/5;background:var(--sand)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.pbadge{margin-top:-52px;margin-right:24px;position:relative;z-index:2;display:inline-block;
+  background:var(--navy);color:#fff;border-radius:14px;padding:13px 20px;font-size:14px;
+  line-height:1.5;box-shadow:0 14px 34px rgba(21,39,66,.3)}
+.pbadge b{color:var(--gold2);display:block;font-size:16px}
+
+/* ===== العد التنازلي ===== */
+.cd{display:flex;gap:10px;margin:30px 0 0;max-width:420px}
+.cd div{background:var(--white);border:1px solid var(--sand);border-radius:12px;
+  padding:10px 4px;flex:1;text-align:center;box-shadow:0 4px 14px rgba(21,39,66,.07)}
+.cd b{display:block;font-size:25px;color:var(--navy);line-height:1.2}
+.cd span{font-size:11px;color:var(--mut)}
+
+/* ===== العرض + النموذج ===== */
+.offer{background:var(--navy);color:#EEF3FA;padding:70px 0}
+.ogrid{display:grid;grid-template-columns:1fr .8fr;gap:46px;align-items:start}
+.checks{margin-top:24px}
+.checks li{list-style:none;display:flex;gap:13px;align-items:flex-start;
+  font-size:clamp(17px,2.1vw,21px);font-weight:700;color:#fff;
+  padding:16px 0;border-bottom:1px solid rgba(224,192,137,.22)}
+.checks li:last-child{border:0}
+.checks .v{color:var(--gold2);font-size:22px;line-height:1.4;flex-shrink:0}
+.mapname{display:inline-block;background:rgba(224,192,137,.14);border:1px solid rgba(224,192,137,.4);
+  color:var(--gold2);border-radius:10px;padding:5px 14px;font-weight:800}
+
+.form{background:var(--white);border-radius:20px;padding:30px;
+  box-shadow:0 28px 64px rgba(0,0,0,.3);color:var(--ink)}
+.form h3{margin-bottom:4px}
+.price{display:flex;align-items:baseline;gap:11px;margin:12px 0 4px;flex-wrap:wrap}
+.price b{font-size:32px;color:var(--navy2)}
+.price s{color:#98A5B6;font-size:17px}
+.form label{display:block;font-size:14px;color:var(--mut);margin:15px 0 6px;font-weight:800}
+.form input{width:100%;background:#FBF9F5;border:1.5px solid var(--sand);border-radius:11px;
+  padding:13px 15px;color:var(--ink);font-family:inherit;font-size:16px}
+.form input:focus{outline:0;border-color:var(--navy2);background:#fff}
+.chk{display:flex;gap:9px;align-items:flex-start;margin-top:16px;font-size:13px;color:var(--mut)}
+.chk input{width:auto;margin-top:5px}
+.btn{display:block;width:100%;margin-top:20px;background:var(--navy2);color:#fff;border:0;
+  border-radius:100px;padding:18px 22px;font-weight:800;font-size:18px;font-family:inherit;
+  cursor:pointer;box-shadow:0 12px 30px rgba(30,58,99,.35);transition:.2s;text-align:center;
+  text-decoration:none}
+.btn:hover{background:var(--navy);transform:translateY(-2px)}
+.btn.gold{background:var(--gold);color:#152742;box-shadow:0 12px 30px rgba(192,154,84,.4)}
+.btn.gold:hover{background:var(--gold2)}
+.micro{text-align:center;color:#98A5B6;font-size:13px;margin-top:12px}
+/* מסגרת הטופס המוטמע מרב מסר */
+.formframe{margin-top:16px;border-radius:12px;overflow:hidden;background:#FBF9F5}
+.formframe iframe{display:block;width:100%;height:var(--formH,430px);border:0}
+
+/* ===== الوجع ===== */
+.pain h2{max-width:18ch}
+.painlist{margin-top:30px;max-width:760px}
+.painlist li{list-style:none;font-size:clamp(19px,2.6vw,26px);font-weight:800;
+  line-height:1.5;padding:14px 0 14px 0;color:var(--navy);
+  border-bottom:1px dashed var(--sand)}
+.painlist li:last-child{border:0}
+.punch{margin-top:34px;background:var(--white);border-right:5px solid var(--gold);
+  border-radius:14px;padding:26px 28px;font-size:clamp(19px,2.4vw,24px);font-weight:800;
+  line-height:1.6;box-shadow:0 10px 30px rgba(21,39,66,.08)}
+.punch em{font-style:normal;color:var(--navy2);display:block;margin-top:6px}
+
+/* ===== بطاقات ===== */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--white);border:1px solid var(--sand);border-radius:18px;padding:28px;
+  box-shadow:0 8px 26px rgba(21,39,66,.06)}
+.card .n{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:1.5px;margin-bottom:8px}
+.card p{color:var(--mut);margin-top:8px;font-size:16px}
+.dark .card{background:#1D3557;border-color:#2E4C77;color:#EEF3FA;box-shadow:none}
+.dark .card p{color:#B8C6DA}
+
+/* ===== إثبات ===== */
+.vid{border-radius:18px;overflow:hidden;border:1px solid var(--sand);aspect-ratio:16/9;
+  background:#0D1A2D;box-shadow:0 14px 40px rgba(21,39,66,.16)}
+.vid iframe{width:100%;height:100%;border:0;display:block}
+.ythumb{display:block;position:relative;cursor:pointer}
+.ythumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.8;transition:.25s}
+.ythumb:hover img{opacity:1}
+.play{position:absolute;top:50%;right:50%;transform:translate(50%,-50%);
+  width:78px;height:78px;border-radius:50%;background:var(--gold);
+  box-shadow:0 12px 34px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+.play::after{content:"";border-style:solid;border-width:15px 25px 15px 0;
+  border-color:transparent #152742 transparent transparent;margin-left:6px}
+.vname{margin-top:12px;font-weight:800;font-size:17px}
+.vname span{display:block;color:var(--gold);font-weight:400;font-size:14px}
+.dark .vname{color:#fff}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.shot{background:var(--white);border:1px solid var(--sand);border-radius:14px;padding:12px;
+  text-align:center;box-shadow:0 8px 24px rgba(21,39,66,.07)}
+.dark .shot{background:#1D3557;border-color:#2E4C77}
+.shot img{width:100%;border-radius:9px;display:block}
+.shot p{color:var(--mut);font-size:14px;margin-top:10px;font-weight:700}
+.dark .shot p{color:#B8C6DA}
+.disc{font-size:13px;color:#98A5B6;margin-top:16px}
+
+/* ===== قبل/بعد ===== */
+.tr{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.tr .box{border-radius:18px;padding:28px;border:1px solid var(--sand);background:var(--white)}
+.tr .after{background:var(--navy);border-color:var(--navy);color:#EEF3FA}
+.tr h4{font-size:14px;letter-spacing:2px;margin-bottom:16px;color:var(--mut)}
+.tr .after h4{color:var(--gold2)}
+.tr li{list-style:none;padding:10px 0;border-bottom:1px dashed var(--sand);font-size:16px}
+.tr .after li{border-color:rgba(224,192,137,.2)}
+.tr li:last-child{border:0}
+
+/* ===== لمين ===== */
+.fit li{list-style:none;padding:11px 0;font-size:17px;display:flex;gap:11px;align-items:flex-start}
+.fit li b{color:var(--gold);flex-shrink:0;font-size:19px;line-height:1.5}
+
+/* ===== الباقة/البايو ===== */
+.bio{display:grid;grid-template-columns:.75fr 1.25fr;gap:48px;align-items:center}
+.bio ul{margin-top:18px}
+.bio li{list-style:none;padding:8px 0;color:var(--mut)}
+.bio li b{color:var(--navy)}
+
+/* ===== FAQ ===== */
+details{background:var(--white);border:1px solid var(--sand);border-radius:14px;
+  margin-bottom:11px;padding:19px 24px}
+summary{cursor:pointer;font-weight:800;font-size:17px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:left;color:var(--gold);font-size:23px;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--mut);margin-top:12px;font-size:16px}
+
+.final{background:linear-gradient(160deg,var(--navy2),var(--navy));text-align:center;color:#fff}
+.final h2{color:#fff}
+.final .btn{max-width:470px;margin:28px auto 0}
+footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
+  background:var(--cream2)}
+
+/* ===== زر ثابت للموبايل ===== */
+.sticky{display:none}
+@media(max-width:860px){
+  .hgrid,.ogrid,.bio,.tr,.g2{grid-template-columns:1fr}
+  .hgrid{gap:32px}
+  .shots{grid-template-columns:1fr 1fr}
+  section{padding:54px 0}
+  .bar{font-size:13px;gap:6px 16px;padding:9px 14px}
+  .pbadge{margin-right:14px}
+  body{padding-bottom:76px}
+  .sticky{display:block;position:fixed;bottom:0;right:0;left:0;z-index:70;
+    background:var(--white);border-top:1px solid var(--sand);padding:10px 14px;
+    box-shadow:0 -8px 24px rgba(21,39,66,.12)}
+  .sticky .btn{margin:0;padding:15px}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span>🗓️ الثلاثاء 8.9.2026</span>
+  <span>🕗 20:00</span>
+  <span>💻 أونلاين</span>
+  <span>⏱️ 90 دقيقة</span>
+</div>
+
+<!-- ============ هيرو ============ -->
+<section class="hero">
+  <div class="wrap hgrid">
+    <div>
+      <div class="kicker">ماستر كلاس مجاني · مقاعد محدودة</div>
+      <h1>من وين رح يجي دخلك <span>الشهر الجاي؟</span></h1>
+      <p class="lead">
+        إذا كان جوابك «إن شاء الله بيجوا عملاء»..<br>
+        فإنتِ ما بتحتاجي تشتغلي أكثر.<br>
+        بتحتاجي تعرفي من وين المصاري المفروض تدخل.
+      </p>
+      <div class="cd" id="cd">
+        <div><b>--</b><span>يوم</span></div>
+        <div><b>--</b><span>ساعة</span></div>
+        <div><b>--</b><span>دقيقة</span></div>
+        <div><b>--</b><span>ثانية</span></div>
+      </div>
+      <p style="color:var(--mut);font-size:14px;margin-top:12px">
+        الرابط بيوصلك على الواتساب والإيميل فور التسجيل.
+      </p>
+    </div>
+
+    <div>
+      <div class="portrait">
+        <img src="rima-hero.png" alt="ريما يعقوب، مدربة ومستشارة أعمال">
+      </div>
+      <div class="pbadge">
+        <b>ريما يعقوب</b>
+        15 سنة بعالم المحاسبة · 7 سنين استشارات أعمال
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ شو رح أطلع + النموذج ============ -->
+<section class="offer" id="reg">
+  <div class="wrap ogrid">
+    <div>
+      <div class="eyebrow" style="color:var(--gold2)">مع شو رح أطلع من اللقاء</div>
+      <h2 style="color:#fff">هاد الماستر كلاس العملي<br>رح أشاركك فيه <span class="mapname">خريطة الدخل</span></h2>
+      <ul class="checks">
+        <li><span class="v">✓</span> هدف دخل واضح للـ90 يوم.</li>
+        <li><span class="v">✓</span> وسيستيم خطوة بخطوة كيف توصلي لعملاء أكثر ودخل منظم.</li>
+      </ul>
+      <p class="lead" style="margin-top:24px">
+        مش محاضرة بتسمعيها وبتنسيها. بتفتحي ورقة وبتعبّي معي،
+        وبتطلعي من اللقاء ومعك خطة مكتوبة بأرقامك إنتِ.
+      </p>
+    </div>
+
+    <!-- ============================================================
+         כרטיס ההרשמה. השדות עצמם הם הטופס של רב מסר, מוטמע ב-iframe,
+         כדי שכל הרשמה תיכנס ישירות לרשימת הדיוור עם כל האוטומציות.
+
+         ✅ הדבר היחיד להחליף: את הכתובת ב-src של ה-iframe למטה.
+            (הכתובת החיה של דף הטופס ברב מסר)
+         ↕  אם הטופס נחתך או שיש רווח מיותר, שני את --formH למטה בלבד.
+         ============================================================ -->
+    <div class="form" id="lead" style="--formH:430px">
+      <h3>احجزي مقعدك بالماستر كلاس</h3>
+      <div class="price"><b>مجاني</b><s>قيمته 49$</s></div>
+      <p style="color:var(--mut);font-size:14px">لأول <b class="gold">100</b> مسجّلة فقط.</p>
+
+      <div class="formframe">
+        <iframe id="rmForm" src="https://rimayaqub.ravpage.co.il/mc1-form"
+          title="نموذج التسجيل" loading="lazy"></iframe>
+        <noscript>
+          <a class="btn" href="https://rimayaqub.ravpage.co.il/mc1-form">احجزي مقعدك ←</a>
+        </noscript>
+      </div>
+
+      <p class="micro">الثلاثاء 8.9.2026 · 20:00 · أونلاين</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ الوجع ============ -->
+<section class="pain">
+  <div class="wrap">
+    <div class="eyebrow">لحظة وحدة</div>
+    <h2>بتشتغلي من قلبك.<br>والدخل ما بيكافئ تعبك.</h2>
+    <ul class="painlist">
+      <li>كل شهر بتبدأي من الصفر.</li>
+      <li>ما بتعرفي شو رح يدخل.</li>
+      <li>بتخافي ترفعي أسعارك.</li>
+      <li>جربتِ الممول. جربتِ السوشيال. نفس النتيجة.</li>
+      <li>وبتسألي حالك: لوين رايحة؟</li>
+    </ul>
+    <div class="punch">
+      المشكلة مش فيكِ. ومش بكمية شغلك.
+      <em>المشكلة إنك بتشتغلي بموديل ساعات، مش بموديل ربح.</em>
+    </div>
+  </div>
+</section>
+
+<!-- ============ الإثبات ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">مش كلام.. أرقام</div>
+    <h2>هيك بتبيّن الخريطة لما تشتغل</h2>
+    <p class="lead">صاحبات بزنس رافقتهن، بيحكوا بلسانهن.</p>
+
+    <div class="grid g2" style="margin-top:32px">
+      <div>
+        <a class="vid ythumb" href="https://www.youtube.com/watch?v=ICnHvMzrqnw"
+           target="_blank" rel="noopener" aria-label="شغّلي فيديو أمال على يوتيوب">
+          <img src="https://i.ytimg.com/vi/ICnHvMzrqnw/hqdefault.jpg" alt="أمال، صاحبة Norsen Spa">
+          <span class="play"></span>
+        </a>
+        <div class="vname">أمال<span>صاحبة Norsen Spa</span></div>
+      </div>
+
+      <div>
+        <div class="vid">
+          <iframe src="https://player.vimeo.com/video/1016293123"
+            title="فيديو مروة" loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="vname">مروة<span>مكتب تصوير وإنتاج</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:26px;display:flex;flex-direction:column;justify-content:center">
+      <h3 style="color:var(--gold2)">من 23,980 لـ 40,534</h3>
+      <p style="font-size:17px">
+        مش بمضاعفة ساعات الشغل. بخطة دخل مكتوبة، تسعير مبني على القيمة،
+        ومتابعة شهرية للأرقام. نفس الأساس اللي رح نبنيه سوا بالماستر كلاس.
+      </p>
+    </div>
+
+    <div class="shots">
+      <div class="shot">
+        <img src="proof-40534.png" alt="من دخل 23,980 لدخل 40,534">
+        <p>من 23,980 لـ 40,534 بالشهر</p>
+      </div>
+      <div class="shot">
+        <img src="proof-15000.jpeg" alt="رسالة: سكرت بيعة بـ15,000 من مقابلة أولى">
+        <p>«سكرت بيعة بـ15,000 من مقابلة أولى»</p>
+      </div>
+      <div class="shot">
+        <img src="proof-24610.png" alt="رسالة: هذا الشهر سكرت 24,610">
+        <p>«هذا الشهر الحمد لله سكرت 24,610»</p>
+      </div>
+      <div class="shot">
+        <img src="proof-retainer.jpeg" alt="رسالة: أول ريتينر 4,400">
+        <p>أول ريتينر شهري ثابت</p>
+      </div>
+    </div>
+    <p class="disc">النتائج بتختلف من بزنس لبزنس وبتعتمد على التنفيذ.</p>
+  </div>
+</section>
+
+<!-- ============ المحطات ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">داخل الـ90 دقيقة</div>
+    <h2>أربع محطات.. وبتطلعي مع خطة مكتوبة</h2>
+    <div class="grid g2" style="margin-top:32px">
+      <div class="card">
+        <div class="n">المحطة 01</div>
+        <h3>خريطة الدخل لـ90 يوم</h3>
+        <p>بنحسب هدف الدخل، وبنفكّكه لمصادر واضحة: من وين بيجي كل شيكل، وكم عميلة بتحتاجي فعلياً. أرقام، مش أمنيات.</p>
+      </div>
+      <div class="card">
+        <div class="n">المحطة 02</div>
+        <h3>الفجوة اللي مانعتك</h3>
+        <p>ثلاث عوائق بتتكرر عند مقدمات الخدمات وبتخليهن عالقات تحت سقف معين. بنحددهن عندك بالاسم، وبنحكي كيف بتتفكك.</p>
+      </div>
+      <div class="card">
+        <div class="n">المحطة 03</div>
+        <h3>تسعير حسب القيمة</h3>
+        <p>كيف بتوضحي قيمتك وبترفعي أسعارك بثقة، بمعادلة بسيطة بتحسب نتيجة العميلة مش ساعات شغلك.</p>
+      </div>
+      <div class="card">
+        <div class="n">المحطة 04</div>
+        <h3>نظام الجذب الآلي</h3>
+        <p>كيف بيوصلوا العملاء لعندك باستمرار، بدون محادثات بيع طويلة، وبدون ما تعيشي داخل الستوري والترندات.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ قبل/بعد ============ -->
+<section style="background:var(--cream2)">
+  <div class="wrap">
+    <div class="eyebrow">The Transformation</div>
+    <h2>من خبرة مشتتة.. إلى مصدر دخل ثابت</h2>
+    <div class="tr">
+      <div class="box">
+        <h4>اليوم</h4>
+        <ul>
+          <li>كل شهر بتبدأي من الصفر</li>
+          <li>الدخل متعلق بمين حجز هالأسبوع</li>
+          <li>أسعارك محلها من سنتين</li>
+          <li>ساعات طويلة بالسوشيال بلا نتيجة</li>
+          <li>بتقولي «إن شاء الله بيجوا عملاء»</li>
+        </ul>
+      </div>
+      <div class="box after">
+        <h4>بعد الماستر كلاس</h4>
+        <ul>
+          <li>خطة دخل مكتوبة لـ90 يوم</li>
+          <li>بتعرفي من وين بيجي كل شيكل</li>
+          <li>تسعير مبني على قيمة النتيجة</li>
+          <li>نظام بيجيب عملاء بدل المطاردة</li>
+          <li>بتعرفي شو الخطوة الجاية بالضبط</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ لمين ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">لمين هاد اللقاء</div>
+    <div class="grid g2" style="margin-top:26px">
+      <div class="card">
+        <h3 class="gold">صُمّم إلك إذا</h3>
+        <ul class="fit" style="margin-top:12px">
+          <li><b>✦</b> إنتِ خبيرة بمجالك: مدربة، معالجة، مستشارة، أو صاحبة مركز (تجميل، تربية، Wellness).</li>
+          <li><b>✦</b> عندك بزنس قائم فعلياً، بس الدخل منه لسه مش ثابت.</li>
+          <li><b>✦</b> عندك معرفة عميقة وبدك تحوّليها لبرنامج بيدرّ دخل حقيقي.</li>
+          <li><b>✦</b> تعبتِ من العشوائية وبدك نظام بيجيب عملاء باستمرار.</li>
+        </ul>
+      </div>
+      <div class="card" style="background:var(--cream2)">
+        <h3 style="color:var(--mut)">مش إلك إذا</h3>
+        <ul class="fit" style="margin-top:12px">
+          <li><b style="color:#A9B4C2">·</b> لسه ما بلشتِ بزنس ومحتاجة تبني من الصفر.</li>
+          <li><b style="color:#A9B4C2">·</b> بتبيعي منتجات مش خدمات.</li>
+          <li><b style="color:#A9B4C2">·</b> بتدوري على حيلة سريعة مش على نظام بتبنيه.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ البايو ============ -->
+<section style="background:var(--cream2)">
+  <div class="wrap bio">
+    <div class="portrait" style="aspect-ratio:4/5">
+      <img src="rima-bio.png" alt="ريما يعقوب">
+    </div>
+    <div>
+      <div class="eyebrow">مين أنا</div>
+      <h2>أنا ريما يعقوب</h2>
+      <p class="lead">مدربة ومستشارة أعمال لروّاد الأعمال والمؤسسات، وأنا هون لآخذ بيدك نحو بناء بزنس ثابت ومربح.</p>
+      <p class="lead" style="margin-top:16px">
+        قضيت <b class="gold">15 سنة بعالم المحاسبة</b> قبل ما أدخل عالم الاستشارات،
+        وهاد اللي بيخلي شغلي مختلف: بنبني إلك تيك إداري ومالي حقيقي،
+        مش بس محتوى ومنشورات.
+      </p>
+      <ul>
+        <li><b>15 سنة</b> بعالم المحاسبة، أعطتني رؤية عميقة بلغة الأرقام وإدارة الأرباح.</li>
+        <li><b>7 سنين</b> كمستشارة أعمال.</li>
+        <li><b>أكثر من 60 صاحب وصاحبة بزنس</b> رافقتهم بتطوير أعمالهم.</li>
+        <li><b>لقب أول</b> في إدارة الأعمال.</li>
+        <li><b>لقب ثانٍ (MA)</b> في تطوير الشركات والمؤسسات.</li>
+        <li><b>مدربة حياة مؤهلة (Life Coaching)</b> في المجال الشخصي والإداري.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">أسئلة بتوصلني كتير</div>
+    <h2>قبل ما تسجلي</h2>
+    <div style="margin-top:26px">
+      <details open><summary>الماستر كلاس مجاني فعلاً؟</summary>
+        <p>نعم. مجاني بالكامل لأول 100 مسجّلة. بعدها بيتحوّل لمدفوع.</p></details>
+      <details><summary>إمتى وكيف بينعقد؟</summary>
+        <p>الثلاثاء 8.9.2026، الساعة 20:00، أونلاين، ومدته 90 دقيقة. رابط الدخول بيوصلك على الواتساب والإيميل فور التسجيل، وبنبعتلك تذكير قبلها بساعة.</p></details>
+      <details><summary>إذا ما قدرت أحضر، في تسجيل؟</summary>
+        <p>اللقاء عملي وبنشتغل فيه سوا، فالحضور المباشر هو اللي بيعطيك النتيجة. المسجّلات بيوصلهن إشعار في حال توفر تسجيل لفترة محدودة.</p></details>
+      <details><summary>أنا لسه بزنسي صغير، بناسبني؟</summary>
+        <p>إذا عندك بزنس خدمات قائم وعملاء فعليين، حتى لو صغير، بناسبك. إذا لسه ما بلشتِ، الأفضل تبدأي بمرحلة تانية.</p></details>
+      <details><summary>شو بحتاج أحضّر؟</summary>
+        <p>ورقة وقلم، ورقم دخلك بالشهر الأخير. بنشتغل على أرقامك إنتِ.</p></details>
+      <details><summary>هاد بيع مبطّن لبرنامج؟</summary>
+        <p>بتطلعي بخريطة دخل مكتوبة سواء كملتِ معي أو لأ. بآخر اللقاء بحكي عن المرافقة لمين بده يكمل، وهاي دقائق مش أكثر.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ الإغلاق ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2>الفجوة بين وين إنتِ اليوم<br>ووين بدك تكوني هي خطوة وحدة</h2>
+    <p class="lead" style="margin-top:16px;color:#C6D3E4">
+      تبدأي تبني إلك نظام دخل بدل ما تستنّي شو بيصير.<br>
+      وهاي الخطوة بتبدأ الثلاثاء الساعة 20:00.
+    </p>
+    <a class="btn gold" href="#reg">احجزي مقعدك بالماستر كلاس ←</a>
+    <p class="micro" style="color:#8FA3BC">مجاني لأول 100 مسجّلة · المقاعد محدودة</p>
+  </div>
+</section>
+
+<footer>ريما يعقوب · مدربة ومستشارة أعمال</footer>
+
+<div class="sticky"><a class="btn" href="#reg">احجزي مقعدك بالماستر كلاس ←</a></div>
+
+<script>
+(function(){
+  var target = new Date(2026, 8, 8, 20, 0, 0).getTime();
+  var cd = document.getElementById('cd');
+  if(!cd) return;
+  var b = cd.querySelectorAll('b');
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function tick(){
+    var d = target - new Date().getTime();
+    if(d < 0){ d = 0; }
+    var v = [
+      Math.floor(d/86400000),
+      Math.floor(d%86400000/3600000),
+      Math.floor(d%3600000/60000),
+      Math.floor(d%60000/1000)
+    ];
+    for(var i=0;i<4;i++){ b[i].textContent = pad(v[i]); }
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+/* حدث Lead:
+   النموذج بدومين تاني (راف مسر)، فالصفحة هون ما بتقدر تعرف إنه انبعت.
+   لهيك حدث Lead لازم ينحط بصفحة الشكر تبع راف مسر:
+   fbq('track','Lead',{content_name:'Masterclass Revenue Map 8.9.2026'}); */
+</script>
+</body>
+</html>
