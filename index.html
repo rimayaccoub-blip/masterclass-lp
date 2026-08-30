@@ -144,6 +144,7 @@ h3{font-size:clamp(19px,2.4vw,23px)}
 
 /* ===== الوجع ===== */
 .pain h2{max-width:18ch}
+.painimg{display:none;max-width:340px}
 .painlist{margin-top:30px;max-width:760px}
 .painlist li{list-style:none;font-size:clamp(19px,2.6vw,26px);font-weight:800;
   line-height:1.5;padding:14px 0 14px 0;color:var(--navy);
@@ -228,6 +229,9 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
 @media(max-width:860px){
   .hgrid,.ogrid,.bio,.tr,.g2{grid-template-columns:1fr}
   .hgrid{gap:32px}
+  /* بالموبايل: الصورة بتظهر بعد الوجع، مش قبله */
+  .hero .heroimg{display:none}
+  .painimg{display:block;margin-top:34px}
   .shots{grid-template-columns:1fr 1fr}
   section{padding:54px 0}
   .bar{padding:9px 0}
@@ -279,9 +283,41 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
       </p>
     </div>
 
-    <div>
+    <div class="heroimg">
       <div class="portrait">
         <img src="rima-hero.jpg" alt="ريما يعقوب، مدربة ومستشارة أعمال">
+      </div>
+      <div class="pbadge">
+        <b>ريما يعقوب</b>
+        15 سنة بعالم المحاسبة · 7 سنين استشارات أعمال
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ الوجع ============ -->
+<section class="pain">
+  <div class="wrap">
+    <div class="eyebrow">لحظة وحدة</div>
+    <h2>بتشتغلي من قلبك.<br>والدخل ما بيكافئ تعبك.</h2>
+    <ul class="painlist">
+      <li>تعلمتي دورات. أخذتِ ألقاب. وسنين خبرة.</li>
+      <li>وإنتِ فعلاً خبيرة بمجالك.</li>
+      <li>بس كل شهر بتبدأي من جديد.</li>
+      <li>ما بتعرفي شو رح يدخل.</li>
+      <li>بتخافي ترفعي أسعارك.</li>
+      <li>جربتِ الممول. جربتِ السوشيال. نفس النتيجة.</li>
+      <li>وبتسألي حالك: لوين رايحة؟</li>
+    </ul>
+    <div class="punch">
+      المشكلة مش فيكِ. ومش بكمية شغلك.
+      <em>المشكلة إنك بتشتغلي بموديل ساعات، مش بموديل ربح.</em>
+    </div>
+
+    <!-- بتظهر بالموبايل بس، بعد ما يوصل الوجع -->
+    <div class="painimg">
+      <div class="portrait">
+        <img loading="lazy" decoding="async" src="rima-hero.jpg" alt="ريما يعقوب، مدربة ومستشارة أعمال">
       </div>
       <div class="pbadge">
         <b>ريما يعقوب</b>
@@ -329,25 +365,6 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
       </div>
 
       <p class="micro">الثلاثاء 8.9.2026 · 20:00 · أونلاين</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ الوجع ============ -->
-<section class="pain">
-  <div class="wrap">
-    <div class="eyebrow">لحظة وحدة</div>
-    <h2>بتشتغلي من قلبك.<br>والدخل ما بيكافئ تعبك.</h2>
-    <ul class="painlist">
-      <li>كل شهر بتبدأي من الصفر.</li>
-      <li>ما بتعرفي شو رح يدخل.</li>
-      <li>بتخافي ترفعي أسعارك.</li>
-      <li>جربتِ الممول. جربتِ السوشيال. نفس النتيجة.</li>
-      <li>وبتسألي حالك: لوين رايحة؟</li>
-    </ul>
-    <div class="punch">
-      المشكلة مش فيكِ. ومش بكمية شغلك.
-      <em>المشكلة إنك بتشتغلي بموديل ساعات، مش بموديل ربح.</em>
     </div>
   </div>
 </section>
