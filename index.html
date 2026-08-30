@@ -59,9 +59,22 @@ h3{font-size:clamp(19px,2.4vw,23px)}
 .dark .eyebrow{color:var(--gold2)}
 
 /* ===== شريط التاريخ ===== */
-.bar{position:sticky;top:0;z-index:60;background:var(--navy);color:#EEF3FA;
-  display:flex;gap:8px 28px;justify-content:center;align-items:center;flex-wrap:wrap;
-  padding:11px 18px;font-weight:700;font-size:15px;border-bottom:2px solid var(--gold)}
+/* רצועת תאריך נעה */
+.bar{position:sticky;top:0;z-index:60;background:var(--gold);color:var(--navy);
+  overflow:hidden;padding:11px 0;border-bottom:2px solid var(--navy)}
+.bar .track{display:flex;width:max-content;direction:ltr;
+  animation:tick 34s linear infinite}
+.bar:hover .track{animation-play-state:paused}
+.bar .grp{display:flex;flex-shrink:0}
+.bar span{white-space:nowrap;font-weight:800;font-size:15px;padding:0 22px;
+  position:relative}
+.bar span::after{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:5px;height:5px;border-radius:50%;background:var(--navy);opacity:.45}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .bar .track{animation:none;width:100%;justify-content:center}
+  .bar .grp[aria-hidden]{display:none}
+}
 
 /* ===== هيرو ===== */
 .hero{background:linear-gradient(180deg,var(--cream2),var(--cream));padding:60px 0 70px;
@@ -217,7 +230,9 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
   .hgrid{gap:32px}
   .shots{grid-template-columns:1fr 1fr}
   section{padding:54px 0}
-  .bar{font-size:13px;gap:6px 16px;padding:9px 14px}
+  .bar{padding:9px 0}
+  .bar span{font-size:13px;padding:0 16px}
+  .bar .track{animation-duration:26s}
   .pbadge{margin-right:14px}
   body{padding-bottom:76px}
   .sticky{display:block;position:fixed;bottom:0;right:0;left:0;z-index:70;
@@ -230,10 +245,14 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
 <body>
 
 <div class="bar">
-  <span>🗓️ الثلاثاء 8.9.2026</span>
-  <span>🕗 20:00</span>
-  <span>💻 أونلاين</span>
-  <span>⏱️ 90 دقيقة</span>
+  <div class="track">
+    <div class="grp">
+      <span>🗓️ الثلاثاء 8.9.2026</span><span>🕗 الساعة 20:00</span><span>💻 أونلاين</span><span>⏱️ 90 دقيقة</span><span>🔥 المقاعد محدودة</span><span>🗓️ الثلاثاء 8.9.2026</span><span>🕗 الساعة 20:00</span><span>💻 أونلاين</span><span>⏱️ 90 دقيقة</span><span>🔥 المقاعد محدودة</span>
+    </div>
+    <div class="grp" aria-hidden="true">
+      <span>🗓️ الثلاثاء 8.9.2026</span><span>🕗 الساعة 20:00</span><span>💻 أونلاين</span><span>⏱️ 90 دقيقة</span><span>🔥 المقاعد محدودة</span><span>🗓️ الثلاثاء 8.9.2026</span><span>🕗 الساعة 20:00</span><span>💻 أونلاين</span><span>⏱️ 90 دقيقة</span><span>🔥 المقاعد محدودة</span>
+    </div>
+  </div>
 </div>
 
 <!-- ============ هيرو ============ -->
