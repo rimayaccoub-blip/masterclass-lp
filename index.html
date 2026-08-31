@@ -6,6 +6,9 @@
 <title>REVENUE MAP · ماستر كلاس خريطة الدخل | ريما يعقوب</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- חימום החיבור לשרת הטופס כדי שהוא ייטען מהר -->
+<link rel="preconnect" href="https://rimayaqub.ravpage.co.il" crossorigin>
+<link rel="dns-prefetch" href="https://rimayaqub.ravpage.co.il">
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
@@ -139,8 +142,18 @@ h3{font-size:clamp(19px,2.4vw,23px)}
 .btn.gold:hover{background:var(--gold2)}
 .micro{text-align:center;color:#98A5B6;font-size:13px;margin-top:12px}
 /* מסגרת הטופס המוטמע מרב מסר */
-.formframe{margin-top:16px;border-radius:12px;overflow:hidden;background:#FBF9F5}
-.formframe iframe{display:block;width:100%;height:var(--formH,430px);border:0}
+.formframe{margin-top:16px;border-radius:12px;overflow:hidden;background:#FBF9F5;
+  position:relative;min-height:var(--formH,430px)}
+.formframe iframe{display:block;width:100%;height:var(--formH,430px);border:0;position:relative;z-index:1}
+/* שלד טעינה, נעלם ברגע שהטופס נטען */
+.skel{position:absolute;inset:0;z-index:2;background:#FBF9F5;padding:22px;
+  display:flex;flex-direction:column;gap:16px;justify-content:center}
+.skel span{display:block;height:48px;border-radius:11px;
+  background:linear-gradient(90deg,#EFE7DA 25%,#F7F2E9 50%,#EFE7DA 75%);
+  background-size:200% 100%;animation:shim 1.3s linear infinite}
+.skel b{text-align:center;font-size:14px;color:#98A5B6;font-weight:400}
+@keyframes shim{from{background-position:200% 0}to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.skel span{animation:none}}
 
 /* ===== الوجع ===== */
 .pain h2{max-width:18ch}
@@ -357,8 +370,13 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
       <p style="color:var(--mut);font-size:14px">لأول <b class="gold">100</b> مسجّلة فقط.</p>
 
       <div class="formframe">
+        <div class="skel" id="rmSkel">
+          <span></span><span></span><span></span>
+          <b>جاري تحميل النموذج..</b>
+        </div>
         <iframe id="rmForm" src="https://rimayaqub.ravpage.co.il/mc1-form"
-          title="نموذج التسجيل" loading="lazy"></iframe>
+          title="نموذج التسجيل" importance="high"
+          onload="var s=document.getElementById('rmSkel'); if(s) s.style.display='none';"></iframe>
         <noscript>
           <a class="btn" href="https://rimayaqub.ravpage.co.il/mc1-form">احجزي مقعدك ←</a>
         </noscript>
