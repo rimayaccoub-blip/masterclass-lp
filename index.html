@@ -9,7 +9,7 @@
 <!-- חימום החיבור לשרת הטופס כדי שהוא ייטען מהר -->
 <link rel="preconnect" href="https://rimayaqub.ravpage.co.il" crossorigin>
 <link rel="dns-prefetch" href="https://rimayaqub.ravpage.co.il">
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;800&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>
@@ -35,7 +35,6 @@ src="https://www.facebook.com/tr?id=914783969729003&ev=PageView&noscript=1" alt=
   --sand:#E3D5BE;       /* حدود بيج */
   --navy:#152742;       /* كحلي عميق */
   --navy2:#1E3A63;      /* كحلي فاتح */
-  --navy3:#2C4E7E;
   --gold:#C09A54;       /* ذهبي/تان */
   --gold2:#E0C089;
   --ink:#152742;
@@ -127,12 +126,11 @@ h3{font-size:clamp(19px,2.4vw,23px)}
 .price{display:flex;align-items:baseline;gap:11px;margin:12px 0 4px;flex-wrap:wrap}
 .price b{font-size:32px;color:var(--navy2)}
 .price s{color:#98A5B6;font-size:17px}
-.form label{display:block;font-size:14px;color:var(--mut);margin:15px 0 6px;font-weight:800}
-.form input{width:100%;background:#FBF9F5;border:1.5px solid var(--sand);border-radius:11px;
-  padding:13px 15px;color:var(--ink);font-family:inherit;font-size:16px}
-.form input:focus{outline:0;border-color:var(--navy2);background:#fff}
-.chk{display:flex;gap:9px;align-items:flex-start;margin-top:16px;font-size:13px;color:var(--mut)}
-.chk input{width:auto;margin-top:5px}
+
+
+
+
+
 .btn{display:block;width:100%;margin-top:20px;background:var(--navy2);color:#fff;border:0;
   border-radius:100px;padding:18px 22px;font-weight:800;font-size:18px;font-family:inherit;
   cursor:pointer;box-shadow:0 12px 30px rgba(30,58,99,.35);transition:.2s;text-align:center;
@@ -405,10 +403,10 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
       </div>
 
       <div>
-        <div class="vid">
-          <iframe src="https://player.vimeo.com/video/1016293123"
-            title="فيديو مروة" loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <div class="vid ythumb" data-vimeo="1016293123" role="button" tabindex="0"
+             aria-label="شغّلي فيديو مروة">
+          <img loading="lazy" decoding="async" src="marwa.jpg" alt="مروة، مكتب تصوير وإنتاج">
+          <span class="play"></span>
         </div>
         <div class="vname">مروة<span>مكتب تصوير وإنتاج</span></div>
       </div>
@@ -615,6 +613,23 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
     for(var i=0;i<4;i++){ b[i].textContent = pad(v[i]); }
   }
   tick(); setInterval(tick,1000);
+})();
+
+// فيديو مروة بينحمّل بس لما تضغطي عليه
+(function(){
+  var el = document.querySelector('.vid[data-vimeo]');
+  if(!el) return;
+  function play(){
+    if(el.dataset.on) return;
+    el.dataset.on = '1';
+    el.innerHTML = '<iframe src="https://player.vimeo.com/video/' + el.getAttribute('data-vimeo') +
+      '?autoplay=1" title="فيديو مروة" allow="autoplay; fullscreen; picture-in-picture"' +
+      ' allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>';
+  }
+  el.addEventListener('click', play);
+  el.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); play(); }
+  });
 })();
 
 /* حدث Lead:
