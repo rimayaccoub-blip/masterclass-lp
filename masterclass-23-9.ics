@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rima Yaqub//Masterclass//AR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:mc-23-09-2026@rimayaqub.com
+DTSTAMP:20260914T120000Z
+DTSTART:20260923T173000Z
+DTEND:20260923T190000Z
+SUMMARY:ماستر كلاس خريطة الدخل | ريما يعقوب
+DESCRIPTION:ماستر كلاس مجاني أونلاين, 90 دقيقة.
+جهزي ورقة وقلم ورقم دخلك بالشهر الأخير.
+رابط الدخول بيوصلك على الواتساب قبل البداية بساعة.
+LOCATION:أونلاين
+URL:https://masterclass.rimayaqub.com
+BEGIN:VALARM
+TRIGGER:-PT60M
+ACTION:DISPLAY
+DESCRIPTION:الماستر كلاس بعد ساعة
+END:VALARM
+END:VEVENT
+END:VCALENDAR
