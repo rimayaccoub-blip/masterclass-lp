@@ -398,18 +398,16 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:13px;
       <div class="price"><b>مجاني</b><s>قيمته 49$</s></div>
       <p style="color:var(--mut);font-size:14px">لأول <b class="gold">100</b> مسجّلة فقط.</p>
 
-      <div class="formframe">
-        <div class="skel" id="rmSkel">
-          <span></span><span></span><span></span>
-          <b>جاري تحميل النموذج..</b>
-        </div>
-        <iframe id="rmForm" src="https://rimayaqub.ravpage.co.il/mc1-form"
-          title="نموذج التسجيل" importance="high"
-          onload="var s=document.getElementById('rmSkel'); if(s) s.style.display='none';"></iframe>
-        <noscript>
-          <a class="btn" href="https://rimayaqub.ravpage.co.il/mc1-form">احجزي مقعدك ←</a>
-        </noscript>
-      </div>
+      <!-- ⚠️ 20.9.2026: الـ iframe انحذف. رب مسر صار خلف Cloudflare
+           وبيبعث X-Frame-Options: SAMEORIGIN، يعني النموذج ما بينعرض جوّا
+           الصفحة أبداً وبيظهر مربع فاضي. الحل: زر بيفتح النموذج مباشرة. -->
+      <a class="btn" href="https://rimayaqub.ravpage.co.il/mc1-form"
+         id="rmCta" style="display:block;text-align:center;font-size:19px;padding:18px">
+        احجزي مقعدك المجاني ←
+      </a>
+      <p style="color:var(--mut);font-size:13px;text-align:center;margin-top:10px">
+        بتوصلك رسالة تأكيد ورابط البث على الإيميل والواتساب.
+      </p>
 
       <p class="micro">الأربعاء <bdi>23.9.2026</bdi>، الساعة <bdi>20:30</bdi>، أونلاين</p>
     </div>
