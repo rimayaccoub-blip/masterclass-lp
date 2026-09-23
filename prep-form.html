@@ -208,7 +208,7 @@ button{font-family:'Almarai',sans-serif;font-weight:800;font-size:15px;
 <script>
 // ضعي هنا رابط Apps Script بعد النشر (انظري prep-form-backend.gs)
 var ENDPOINT = '';
-var WA = ''; // رقم واتساب ريما بصيغة 9725xxxxxxxx — احتياط إذا فشل الإرسال
+var WA = '972525751404'; // واتساب ريما — احتياط إذا فشل الإرسال
 
 var KEY = 'mc_prep_v1';
 var els = document.querySelectorAll('[data-k]');
@@ -270,6 +270,22 @@ function payload(){
   d.ts = new Date().toISOString();
   return d;
 }
+var LBL = {
+  name:'الاسم', phone:'واتساب', q1:'المجال', q2:'الخبرة بتحقق دخل أكبر؟',
+  q3:'شو رح يتغير بحياتي', q4:'الاستقلال المالي بالنسبة إلي',
+  m1:'دخل شهر 1', m2:'دخل شهر 2', m3:'دخل شهر 3', gap:'الفجوة',
+  goal:'هدف الدخل', price:'سعر الخدمة', clients:'كم عميلة بحتاج', cur:'عميلات جدد حالياً',
+  t1:'جربت محتوى', t2:'جربت إعلانات', t3:'جربت تخفيض سعر', t4:'جربت دورة',
+  t5:'جربت عرض آخر الشهر', t6:'ما جربت إشي منظّم',
+  block:'أكبر عائق', stop:'وين النمو بيوقف', ask:'سؤالي للقاء'
+};
+function asText(d){
+  var t = 'استمارة التجهيز · خريطة الدخل\n\n';
+  Object.keys(LBL).forEach(function(k){
+    if (d[k] && d[k] !== '—') t += LBL[k] + ': ' + d[k] + '\n';
+  });
+  return t;
+}
 function msg(t, color){
   var m = document.getElementById('sendMsg');
   m.textContent = t;
@@ -302,9 +318,10 @@ function send(){
         if (WA) {
           msg('ما زبط الإرسال. ');
           var a = document.createElement('a');
-          a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('عبّيت استمارة التجهيز، اسمي ' + d.name);
-          a.textContent = 'ابعتيلها بالواتساب';
+          a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(asText(d));
+          a.textContent = 'ابعتيها بالواتساب';
           a.style.color = 'var(--gold2)';
+          a.style.fontWeight = '800';
           document.getElementById('sendMsg').appendChild(a);
         } else {
           msg('ما زبط الإرسال. احفظيها PDF وابعتيها بالواتساب.', '#FF95A9');
