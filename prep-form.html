@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>استمارة التجهيز · خريطة الدخل</title>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0B1929;--navy2:#13294A;--gold:#C9A84C;--gold2:#F0D486;
+  --white:#F2F7FF;--gray:#A8B6CE;--line:rgba(201,168,76,.32)}
+body{font-family:'Almarai',sans-serif;background:var(--navy);color:var(--white);
+  line-height:1.6;padding:5vh 5vw 12vh}
+.wrap{max-width:820px;margin:0 auto}
+.brand{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:3px;
+  color:var(--gold);opacity:.7;margin-bottom:24px}
+h1{font-size:clamp(28px,5vw,44px);font-weight:800;line-height:1.2;margin-bottom:16px}
+.g{color:var(--gold2)}
+.lead{font-size:clamp(16px,2.4vw,20px);color:#C6D4EA;margin-bottom:12px}
+.lead b{color:var(--white)}
+.why{background:rgba(201,168,76,.1);border:1px solid var(--gold);border-radius:14px;
+  padding:18px 20px;margin:28px 0 40px;font-size:16px;font-weight:700;color:var(--gold2)}
+
+.sec{margin-top:44px}
+.sec>.st{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:2px;
+  color:var(--gold);font-weight:700;margin-bottom:8px}
+.sec>h2{font-size:clamp(22px,3.4vw,30px);font-weight:800;margin-bottom:6px}
+.sec>.sh{font-size:15px;color:var(--gray);margin-bottom:20px}
+
+.q{background:var(--navy2);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin-bottom:16px}
+.q label{display:block;font-size:17px;font-weight:800;margin-bottom:10px}
+.q .hint{font-size:13.5px;color:var(--gray);font-weight:400;margin-top:-6px;margin-bottom:10px}
+input[type=text],input[type=number],textarea,select{
+  width:100%;background:rgba(11,25,41,.75);border:1px solid var(--line);border-radius:10px;
+  color:var(--white);font-family:'Almarai',sans-serif;font-size:16px;padding:12px 14px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);background:rgba(201,168,76,.07)}
+textarea{min-height:92px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.row,.row2{grid-template-columns:1fr}}
+.row .f label,.row2 .f label{font-size:14px;color:var(--gray);font-weight:400;margin-bottom:6px}
+
+.calc{background:rgba(201,168,76,.12);border:1px solid var(--gold);border-radius:14px;
+  padding:20px 22px;margin-top:16px;display:flex;justify-content:space-between;
+  align-items:center;gap:16px;flex-wrap:wrap}
+.calc .lb{font-size:16px;font-weight:800}
+.calc .v{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;color:var(--gold2)}
+
+.opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt span{display:block;border:1px solid var(--line);border-radius:30px;padding:9px 16px;
+  font-size:15px;cursor:pointer;background:rgba(11,25,41,.6)}
+.opt input:checked+span{border-color:var(--gold);background:rgba(201,168,76,.18);color:var(--gold2);font-weight:800}
+
+.bar{position:fixed;bottom:0;right:0;left:0;background:rgba(11,25,41,.96);
+  border-top:1px solid var(--line);padding:14px 5vw;display:flex;gap:12px;
+  justify-content:center;align-items:center;flex-wrap:wrap;z-index:50}
+.bar .ok{font-size:14px;color:var(--gold2);font-weight:700}
+button{font-family:'Almarai',sans-serif;font-weight:800;font-size:15px;
+  border:none;border-radius:30px;padding:12px 24px;cursor:pointer}
+.b1{background:var(--gold);color:var(--navy)}
+.b2{background:none;border:1px solid var(--line);color:var(--gray)}
+
+@media print{
+  body{background:#fff;color:#111;padding:20px}
+  .bar,.why,#sendBox{display:none}
+  .q,.sec,.calc{background:#fff;border:1px solid #bbb;break-inside:avoid}
+  h1,.g,.sec>h2,.calc .v,.calc .lb{color:#111}
+  input,textarea,select{border:none;border-bottom:1px solid #999;border-radius:0;background:#fff;color:#111}
+  .opt span{border:1px solid #999;color:#111;background:#fff}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">LEVERAGROW360</div>
+  <h1>استمارة التجهيز لماستر كلاس <span class="g">خريطة الدخل</span></h1>
+  <p class="lead">عبّيها قبل اللقاء، وخدها معك. <b>اللي بتعبّي هالاستمارة بتطلع من اللقاء بخريطة جاهزة، مش بملاحظات.</b></p>
+  <div class="why">⏱ خمس دقايق. ما في إجابات صح وغلط، وما في حدا بيشوفها غيرك. بس لازم تكون أرقامك الحقيقية.</div>
+
+  <!-- 1 -->
+  <div class="sec">
+    <div class="st">القسم 01</div>
+    <h2>الحلم</h2>
+    <div class="sh">قبل ما نحكي عن أي تحدي، خليني أفهم وين بدك توصلي.</div>
+
+    <div class="q">
+      <label>بأي مجال إنتِ؟ وشو بالضبط بتقدمي لعميلاتك؟</label>
+      <textarea data-k="q1"></textarea>
+    </div>
+    <div class="q">
+      <label>هل بتحسي إنه خبرتك ممكن تحقق الك دخل أكبر من هلق؟ ليش؟</label>
+      <textarea data-k="q2"></textarea>
+    </div>
+    <div class="q">
+      <label>شو رح يتغير بحياتك إذا حققتي هاد الدخل؟</label>
+      <div class="hint">اكتبي إشي ملموس: وقت، سفر، أمان، قرار بدك تقدري تاخديه.</div>
+      <textarea data-k="q3"></textarea>
+    </div>
+    <div class="q">
+      <label>شو معنى «الاستقلال المالي» بالنسبة إلك؟</label>
+      <textarea data-k="q4"></textarea>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="sec">
+    <div class="st">القسم 02</div>
+    <h2>أرقامك</h2>
+    <div class="sh">هاي الأرقام اللي رح نشتغل عليها بالمحطة الأولى باللقاء.</div>
+
+    <div class="q">
+      <label>دخل آخر تلات شهور</label>
+      <div class="hint">الدخل الفعلي اللي دخل للبزنس، مش المتوقع.</div>
+      <div class="row">
+        <div class="f"><label>الشهر الأول</label><input type="number" data-k="m1" placeholder="0"></div>
+        <div class="f"><label>الشهر الثاني</label><input type="number" data-k="m2" placeholder="0"></div>
+        <div class="f"><label>الشهر التالت</label><input type="number" data-k="m3" placeholder="0"></div>
+      </div>
+      <div class="calc"><span class="lb">الفرق بين أعلى شهر وأقل شهر</span><span class="v" id="vGap">—</span></div>
+    </div>
+
+    <div class="q">
+      <label>هدفك الشهري بعد 90 يوم</label>
+      <div class="row2">
+        <div class="f"><label>هدف الدخل الشهري</label><input type="number" data-k="goal" placeholder="4000"></div>
+        <div class="f"><label>سعر خدمتك الأساسية</label><input type="number" data-k="price" placeholder="1000"></div>
+      </div>
+      <div class="calc"><span class="lb">كم عميلة بتحتاجي بالشهر</span><span class="v" id="vClients">—</span></div>
+    </div>
+
+    <div class="q">
+      <label>كم عميلة جديدة بتيجيك بالشهر هلق فعلياً؟</label>
+      <input type="number" data-k="cur" placeholder="0">
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="sec">
+    <div class="st">القسم 03</div>
+    <h2>شو جربتي</h2>
+    <div class="sh">عشان ما نعيد إشي جربتيه وما زبط.</div>
+
+    <div class="q">
+      <label>شو جربتي بآخر سنة عشان تزيدي الدخل؟</label>
+      <div class="opts">
+        <label class="opt"><input type="checkbox" data-k="t1"><span>محتوى أكثر</span></label>
+        <label class="opt"><input type="checkbox" data-k="t2"><span>حملة إعلانية</span></label>
+        <label class="opt"><input type="checkbox" data-k="t3"><span>تخفيض السعر</span></label>
+        <label class="opt"><input type="checkbox" data-k="t4"><span>دورة جديدة</span></label>
+        <label class="opt"><input type="checkbox" data-k="t5"><span>عرض آخر الشهر</span></label>
+        <label class="opt"><input type="checkbox" data-k="t6"><span>ما جربت إشي منظّم</span></label>
+      </div>
+    </div>
+    <div class="q">
+      <label>شو أكبر إشي بحسّك إنه واقف بطريقك هلق؟</label>
+      <textarea data-k="block"></textarea>
+    </div>
+    <div class="q">
+      <label>بأي محطة بتحسي إنه النمو عم يوقف؟</label>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="stop" data-k="stop" value="جمهور"><span>جمهور</span></label>
+        <label class="opt"><input type="radio" name="stop" data-k="stop" value="عرض"><span>عرض</span></label>
+        <label class="opt"><input type="radio" name="stop" data-k="stop" value="سعر"><span>سعر</span></label>
+        <label class="opt"><input type="radio" name="stop" data-k="stop" value="مبيعات"><span>مبيعات</span></label>
+        <label class="opt"><input type="radio" name="stop" data-k="stop" value="متابعة"><span>متابعة</span></label>
+        <label class="opt"><input type="radio" name="stop" data-k="stop" value="مش عارفة"><span>مش عارفة</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="sec">
+    <div class="st">القسم 04</div>
+    <h2>سؤالك</h2>
+    <div class="q">
+      <label>لو بتقدري تاخدي جواب واحد باللقاء، شو بيكون سؤالك؟</label>
+      <textarea data-k="ask"></textarea>
+    </div>
+  </div>
+
+  <!-- 5 · اختياري -->
+  <div class="sec" id="sendBox">
+    <div class="st">اختياري</div>
+    <h2>بدك <span class="g">ريما تقرأ إجاباتك</span> قبل اللقاء؟</h2>
+    <div class="sh">إذا بعتيها، بتعرف وين إنتِ وبتحكي عن حالتك باللقاء. إذا ما بعتيها، الاستمارة بتضل عندك بس ولا حدا بيشوفها.</div>
+    <div class="q">
+      <div class="row2">
+        <div class="f"><label>اسمك</label><input type="text" data-k="name" placeholder="الاسم"></div>
+        <div class="f"><label>واتساب</label><input type="text" data-k="phone" placeholder="05x-xxxxxxx"></div>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <button class="b1" id="sendBtn" onclick="send()">ابعتي إجاباتي لريما</button>
+        <span id="sendMsg" style="font-size:14px;color:var(--gray)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bar">
+  <span class="ok" id="ok">بينحفظ تلقائي على جهازك</span>
+  <button class="b1" onclick="window.print()">احفظيها PDF أو اطبعيها</button>
+  <button class="b2" onclick="clr()">مسح الكل</button>
+</div>
+
+<script>
+// ضعي هنا رابط Apps Script بعد النشر (انظري prep-form-backend.gs)
+var ENDPOINT = '';
+var WA = ''; // رقم واتساب ريما بصيغة 9725xxxxxxxx — احتياط إذا فشل الإرسال
+
+var KEY = 'mc_prep_v1';
+var els = document.querySelectorAll('[data-k]');
+
+function load(){
+  var d = {};
+  try { d = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){}
+  els.forEach(function(el){
+    var k = el.getAttribute('data-k');
+    if (el.type === 'checkbox') { el.checked = !!d[k]; }
+    else if (el.type === 'radio') { el.checked = (d[k] === el.value); }
+    else if (d[k] != null) { el.value = d[k]; }
+  });
+  calc();
+}
+function save(){
+  var d = {};
+  els.forEach(function(el){
+    var k = el.getAttribute('data-k');
+    if (el.type === 'checkbox') { d[k] = el.checked; }
+    else if (el.type === 'radio') { if (el.checked) d[k] = el.value; }
+    else { d[k] = el.value; }
+  });
+  try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e){}
+  var ok = document.getElementById('ok');
+  ok.textContent = 'انحفظ ✓';
+  clearTimeout(save._t);
+  save._t = setTimeout(function(){ ok.textContent = 'بينحفظ تلقائي على جهازك'; }, 1500);
+}
+function num(k){
+  var el = document.querySelector('[data-k="'+k+'"]');
+  var n = parseFloat(el && el.value);
+  return isNaN(n) ? null : n;
+}
+function calc(){
+  var m = [num('m1'), num('m2'), num('m3')].filter(function(x){ return x !== null; });
+  document.getElementById('vGap').textContent =
+    m.length >= 2 ? (Math.max.apply(null,m) - Math.min.apply(null,m)).toLocaleString('en-US') : '—';
+
+  var g = num('goal'), p = num('price');
+  document.getElementById('vClients').textContent =
+    (g && p) ? Math.ceil(g/p) : '—';
+}
+function clr(){
+  if (!confirm('بدك تمسحي كل الإجابات؟')) return;
+  try { localStorage.removeItem(KEY); } catch(e){}
+  location.reload();
+}
+function payload(){
+  var d = {};
+  els.forEach(function(el){
+    var k = el.getAttribute('data-k');
+    if (el.type === 'checkbox') { if (el.checked) d[k] = 'نعم'; }
+    else if (el.type === 'radio') { if (el.checked) d[k] = el.value; }
+    else if (el.value) { d[k] = el.value; }
+  });
+  d.gap = document.getElementById('vGap').textContent;
+  d.clients = document.getElementById('vClients').textContent;
+  d.ts = new Date().toISOString();
+  return d;
+}
+function msg(t, color){
+  var m = document.getElementById('sendMsg');
+  m.textContent = t;
+  m.style.color = color || 'var(--gray)';
+}
+function send(){
+  var d = payload();
+  if (!d.name || !d.phone) { msg('اكتبي اسمك ورقم الواتساب أول.', '#FF95A9'); return; }
+  if (!ENDPOINT) { msg('الإرسال لسا مش مفعّل. احفظيها PDF وابعتيها بالواتساب.', '#FF95A9'); return; }
+
+  var btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  msg('عم نبعت...');
+
+  fetch(ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(d)
+  }).then(function(r){
+    if (!r.ok) throw new Error('bad status');
+    return r.text();
+  }).then(function(){
+    done();
+  }).catch(function(){
+    // محاولة تانية بدون قراءة الرد (بعض المتصفحات بتحجب الـ CORS)
+    fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: JSON.stringify(d) })
+      .then(done)
+      .catch(function(){
+        btn.disabled = false;
+        if (WA) {
+          msg('ما زبط الإرسال. ');
+          var a = document.createElement('a');
+          a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('عبّيت استمارة التجهيز، اسمي ' + d.name);
+          a.textContent = 'ابعتيلها بالواتساب';
+          a.style.color = 'var(--gold2)';
+          document.getElementById('sendMsg').appendChild(a);
+        } else {
+          msg('ما زبط الإرسال. احفظيها PDF وابعتيها بالواتساب.', '#FF95A9');
+        }
+      });
+  });
+}
+function done(){
+  document.getElementById('sendBox').innerHTML =
+    '<div class="why" style="display:block">✓ وصلت. ريما رح تقرأها قبل اللقاء. شوفيك هناك.</div>';
+}
+
+els.forEach(function(el){
+  el.addEventListener('input', function(){ calc(); save(); });
+  el.addEventListener('change', function(){ calc(); save(); });
+});
+load();
+</script>
+</body>
+</html>
