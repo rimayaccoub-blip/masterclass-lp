@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>هل خدمتك فعلًا مطلوبة؟ | ريما يعقوب</title>
+<meta name="description" content="كيف تكتشفي إذا خدمتك فعلًا مطلوبة؟ فحص من 4 زوايا: الطلب، الصورة من برّا، الفهم، والوصول">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0B1929;--navy2:#13294A;--gold:#C9A84C;--gold2:#F0D486;
+  --white:#F2F7FF;--gray:#A8B6CE;--line:rgba(201,168,76,.32);--red:#E8907A;--green:#8FD3A6}
+html,body{min-height:100%}
+body{font-family:'Almarai',sans-serif;background:var(--navy);color:var(--white);line-height:1.6}
+.app{max-width:560px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:20px 16px 24px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.brand{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);opacity:.75}
+.dots{display:flex;gap:5px}
+.dots i{width:18px;height:5px;border-radius:4px;background:rgba(255,255,255,.12)}
+.dots i.on{background:var(--gold)}
+
+.step{display:none;flex:1;flex-direction:column}
+.step.on{display:flex;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1{font-size:31px;font-weight:800;line-height:1.25;margin:18px 0 12px}
+h2{font-size:24px;font-weight:800;line-height:1.3;margin:6px 0 6px}
+.g{color:var(--gold2)}
+.sub{font-size:16px;color:#C6D4EA;margin-bottom:16px}
+.sub b{color:var(--white)}
+.k{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:2px;color:var(--gold);font-weight:700}
+.why{background:rgba(201,168,76,.1);border-right:3px solid var(--gold);border-radius:8px;padding:12px 14px;
+  font-size:14.5px;color:var(--gold2);margin-bottom:18px}
+
+.lenses{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 10px}
+.lenses div{background:var(--navy2);border:1px solid var(--line);border-radius:14px;padding:14px 12px}
+.lenses b{display:block;font-size:15px;margin-bottom:2px}
+.lenses small{font-size:13px;color:var(--gray);line-height:1.5;display:block}
+.lenses .n{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:12px;font-weight:800}
+
+.f{margin-bottom:14px}
+.f label,.lbl{display:block;font-size:15.5px;font-weight:700;margin-bottom:6px}
+.f small,.lbl small{display:block;font-size:13px;color:var(--gray);font-weight:400;margin-top:-2px;margin-bottom:6px}
+input[type=text],input[type=number]{width:100%;background:var(--navy2);border:1px solid var(--line);border-radius:12px;
+  color:var(--white);font-family:'Almarai',sans-serif;font-size:17px;padding:13px 14px;outline:none}
+input:focus{border-color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.yn{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--navy2);
+  border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px}
+.yn span{font-size:15px;flex:1}
+.yn .b{display:flex;gap:6px;flex:none}
+.yn label,.chip{position:relative;cursor:pointer}
+.yn input,.chip input{position:absolute;opacity:0;width:0;height:0}
+.yn label b{display:block;border:1px solid var(--line);border-radius:20px;padding:6px 14px;font-size:14px;font-weight:700}
+.yn input:checked+b,.chip input:checked+b{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.yn input:focus-visible+b,.chip input:focus-visible+b{outline:2px solid var(--gold2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip b{display:block;border:1px solid var(--line);border-radius:20px;padding:8px 14px;font-size:14.5px;font-weight:700;background:var(--navy2)}
+
+.nav{display:flex;gap:10px;margin-top:auto;padding-top:18px}
+button,.btn{font-family:'Almarai',sans-serif;font-weight:800;font-size:16px;border:none;border-radius:30px;
+  padding:14px 22px;cursor:pointer;text-decoration:none;text-align:center;display:block}
+.b1{background:var(--gold);color:var(--navy);flex:1}
+.b1:disabled{opacity:.4;cursor:default}
+.b2{background:none;border:1px solid var(--line);color:var(--gray)}
+
+.res{background:linear-gradient(160deg,#16305A,#0F2240);border:1px solid var(--gold);border-radius:18px;padding:20px 18px;margin-top:8px}
+.res .lb{font-size:12px;letter-spacing:1px;color:var(--gold);font-weight:700;margin-bottom:4px}
+.res .big{font-size:21px;font-weight:800;line-height:1.4;margin-bottom:8px}
+.res p{font-size:15.5px;color:#D6E1F2}
+.bars{margin:6px 0 16px}
+.bar{margin-bottom:10px}
+.bar .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px}
+.bar .t b{font-family:'Montserrat',sans-serif;color:var(--gold2)}
+.bar .tr{height:8px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar .fl{height:100%;border-radius:6px;background:var(--gold)}
+.bar.low .fl{background:var(--red)}
+.bar.low .t span{color:#F6C9BC;font-weight:800}
+.money{display:flex;gap:8px;margin:14px 0 0;flex-wrap:wrap}
+.money div{flex:1 1 30%;background:rgba(11,25,41,.6);border-radius:10px;padding:8px 6px;text-align:center}
+.money b{display:block;font-family:'Montserrat',sans-serif;font-size:18px;color:var(--gold2)}
+.money small{font-size:11.5px;color:var(--gray)}
+.warn{margin-top:12px;background:rgba(232,144,122,.12);border:1px solid var(--red);color:#F6C9BC;border-radius:12px;padding:12px 14px;font-size:14.5px}
+.dec{margin-top:16px;background:var(--gold);color:var(--navy);border-radius:14px;padding:16px}
+.dec .lb{color:var(--navy);opacity:.75}
+.dec .big{margin:0;font-size:18px}
+.mom{margin-top:18px;border:1px solid var(--gold);border-radius:18px;padding:20px 18px;background:rgba(201,168,76,.08)}
+.mom .lb{font-size:12px;letter-spacing:1px;color:var(--gold);font-weight:700;margin-bottom:4px}
+.mom .big{font-size:20px;font-weight:800;line-height:1.4;margin-bottom:8px}
+.mom p{font-size:15.5px;color:#D6E1F2;margin-bottom:10px}
+.mom p.q{font-size:17px;font-weight:800;color:var(--white);margin:16px 0 12px}
+.mom .btn{width:100%;margin-bottom:10px}
+.b3{background:none;border:1px solid var(--line);color:var(--gray);font-size:14.5px;padding:11px 18px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:16px 0 4px;cursor:pointer;font-size:14.5px;color:#C6D4EA}
+.chk input{width:20px;height:20px;accent-color:var(--gold);margin-top:2px;flex:none}
+.again{background:none;border:none;color:var(--gray);font-size:13.5px;text-decoration:underline;padding:10px;margin:4px auto 0}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div class="brand">RIMA YAQUB</div><div class="dots" id="dots"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+
+  <!-- 0 intro -->
+  <section class="step on">
+    <h1>كيف تكتشفي إذا خدمتك <span class="g">فعلًا مطلوبة؟</span></h1>
+    <p class="sub">مش كل خدمة الناس بحاجة إلها بيكونوا مستعدين يشتروها. أحيانًا الخدمة ممتازة، بس من برّا ما حدا فاهم شو بتعطي، أو ما في طريق واضح يوصلولك.</p>
+    <p class="sub"><b>بـ<bdi>5</bdi> دقايق رح نفحص خدمتك من <bdi>4</bdi> زوايا:</b></p>
+    <div class="lenses">
+      <div><span class="n">01</span><b>الطلب</b><small>في ناس فعلًا بتسأل وبتشتري؟</small></div>
+      <div><span class="n">02</span><b>الصورة من برّا</b><small>كيف بيبيّن البزنس لوحدة ما بتعرفك؟</small></div>
+      <div><span class="n">03</span><b>الفهم</b><small>الناس فاهمة شو بتعطي؟</small></div>
+      <div><span class="n">04</span><b>الوصول</b><small>كيف بيوصلولك، وهل الطريق واضح؟</small></div>
+    </div>
+    <p class="sub" style="font-size:14.5px">وبالآخر: وين الفجوة الأكبر، وقرار واحد لهالأسبوع.</p>
+    <div class="nav"><button class="b1" data-next>يلا نبلّش</button></div>
+  </section>
+
+  <!-- 1 service -->
+  <section class="step">
+    <div class="k">البداية</div>
+    <h2>الخدمة اللي رح نفحصها</h2>
+    <p class="sub">اختاري خدمة وحدة بس، الأقرب لمضاعفة دخلك.</p>
+    <div class="f"><label for="svc">شو الخدمة أو الباقة؟</label><input type="text" id="svc" data-k="svc" placeholder="مثلًا: باقة علاج 6 جلسات"></div>
+    <div class="f"><label for="who">لمين تحديدًا؟</label><small>مش «لكل الناس».</small><input type="text" id="who" data-k="who" placeholder="مثلًا: نساء 35+ بيعانوا من آلام ظهر"></div>
+    <div class="nav"><button class="b2" data-back>رجوع</button><button class="b1" data-next data-need="svc">التالي</button></div>
+  </section>
+
+  <!-- 2 demand -->
+  <section class="step">
+    <div class="k">01 الطلب</div>
+    <h2>في طلب حقيقي؟</h2>
+    <div class="why">الاحتياج مش طلب. الطلب هو لما الناس بتسأل، بتدفع، وبترجع.</div>
+    <div class="two">
+      <div class="f"><label for="asked">كم وحدة سألت؟</label><small>بآخر <bdi>60</bdi> يوم</small><input type="number" min="0" inputmode="numeric" id="asked" data-k="asked"></div>
+      <div class="f"><label for="bought">كم وحدة اشترت؟</label><small>بنفس الفترة</small><input type="number" min="0" inputmode="numeric" id="bought" data-k="bought"></div>
+    </div>
+    <div class="lbl">أي إشارة من هدول بتصير عندك؟<small>علّمي كل اللي بينطبق</small></div>
+    <div class="chips" id="sigs"></div>
+    <div class="nav"><button class="b2" data-back>رجوع</button><button class="b1" data-next>التالي</button></div>
+  </section>
+
+  <!-- 3 outside -->
+  <section class="step">
+    <div class="k">02 الصورة من برّا</div>
+    <h2>كيف بيبيّن البزنس من برّا؟</h2>
+    <div class="why">تخيّلي وحدة ما بتعرفك فتحت الإنستغرام أو الفيسبوك تبعك. عندك <bdi>5</bdi> ثواني. شو بتشوف؟</div>
+    <div id="yOut"></div>
+    <div class="nav"><button class="b2" data-back>رجوع</button><button class="b1" data-next>التالي</button></div>
+  </section>
+
+  <!-- 4 understanding -->
+  <section class="step">
+    <div class="k">03 الفهم</div>
+    <h2>الناس فاهمة شو بتعطي؟</h2>
+    <div class="why">إذا الناس ما فهمت شو بتعطي، بتقارن بالسعر بس. وإنتِ بتخسري حتى لو خدمتك الأحسن.</div>
+    <div id="yUnd"></div>
+    <div class="f" style="margin-top:8px"><label for="one">اكتبي بجملة وحدة: شو بتعطي؟</label><small>الجملة اللي بدك أي حدا يعيدها عنك</small><input type="text" id="one" data-k="one"></div>
+    <div class="nav"><button class="b2" data-back>رجوع</button><button class="b1" data-next>التالي</button></div>
+  </section>
+
+  <!-- 5 access -->
+  <section class="step">
+    <div class="k">04 الوصول</div>
+    <h2>كيف بيوصلولك؟</h2>
+    <div class="lbl">من وين إجو آخر العميلات؟<small>علّمي كل اللي بينطبق</small></div>
+    <div class="chips" id="chans"></div>
+    <div class="lbl">وهل الطريق واضح؟</div>
+    <div id="yAcc"></div>
+    <div class="nav"><button class="b2" data-back>رجوع</button><button class="b1" data-next>التالي</button></div>
+  </section>
+
+  <!-- 6 money -->
+  <section class="step">
+    <div class="k">الأرقام</div>
+    <h2>الدخل والوقت</h2>
+    <p class="sub">بالدولار وبالساعات. أرقام تقريبية بتكفي.</p>
+    <div class="two">
+      <div class="f"><label for="price">سعر الخدمة ($)</label><input type="number" min="0" inputmode="decimal" id="price" data-k="price"></div>
+      <div class="f"><label for="goal">كم بيع بالشهر بدك؟</label><input type="number" min="0" inputmode="numeric" id="goal" data-k="goal"></div>
+      <div class="f"><label for="hrs">كم ساعة شغل بتاخد كل عميلة؟</label><small>كل الوقت: المكالمة، التحضير، الجلسات والمتابعة</small><input type="number" min="0" step="0.5" inputmode="decimal" id="hrs" data-k="hrs"></div>
+      <div class="f"><label for="cap">كم ساعة عندك بالشهر؟</label><small>للشغل مع عميلات، مش للإدارة والتسويق</small><input type="number" min="0" inputmode="numeric" id="cap" data-k="cap"></div>
+    </div>
+    <div class="nav"><button class="b2" data-back>رجوع</button><button class="b1" data-next>شوفي النتيجة</button></div>
+  </section>
+
+  <!-- 7 result -->
+  <section class="step">
+    <div class="k">النتيجة</div>
+    <div class="res">
+      <div class="lb">خدمتك من <bdi>4</bdi> زوايا</div>
+      <div class="bars" id="bars"></div>
+      <div class="lb">الفجوة الأكبر</div>
+      <div class="big" id="gapT"></div>
+      <p id="gapP"></p>
+      <div class="money" id="money"></div>
+      <div class="warn" id="warn" hidden></div>
+      <div class="dec"><div class="lb">قرارك لهالأسبوع</div><div class="big" id="decT"></div></div>
+    </div>
+    <div class="mom">
+      <div class="lb">الخطوة الجاية</div>
+      <div class="big">برنامج <span class="g">Momentum</span> ممكن يساعدك تسكّري هالفجوة</div>
+      <p id="momP"></p>
+      <p class="q">بدك ريما ترجعلك بالتفاصيل؟</p>
+      <a class="btn b1" id="waYes" href="#" target="_blank" rel="noopener">أيوا، ارجعيلي بالتفاصيل</a>
+      <a class="btn b3" id="waNo" href="#" target="_blank" rel="noopener">لا، بس ابعتي نتيجتي لريما</a>
+    </div>
+    <button class="again" id="again">إعادة الفحص</button>
+  </section>
+</div>
+
+<script>
+(function(){
+var WA='972525751404', KEY='rima_demand_v2';
+var SIGS=['بيسألوا عن السعر','بيرجعوا يشتروا مرة تانية','بيرشّحوني لغيرهم','بيحجزوا بدون ما أقنعهم'];
+var OUT=['واضح من البايو لمين الخدمة','في نتائج أو شهادات عملاء ظاهرة','في اسم واضح للخدمة أو الباقة','آخر 9 بوستات بتحكي عن خدمتي، مش بس عن حياتي'];
+// understanding: "yes" here is a bad sign, so it's reversed in the score
+var UND=['الناس بتسألني «شو بتعملي بالزبط؟»','بيقارنوني بحدا أرخص','أول سؤال بيكون «قديش؟»','بيوصفوا خدمتي غلط لما يحكوا عنها'];
+var CHANS=['توصيات وكلام ناس','إنستغرام','فيسبوك','إعلانات ممولة','واتساب','عميلات قدامى رجعوا','ما بعرف'];
+var ACC=['في رابط أو زر واضح للحجز أو التواصل','بردّ على كل استفسار خلال 24 ساعة','بتابع مع اللي سألت وما اشترت'];
+
+var $=function(id){return document.getElementById(id)};
+var d={}; try{d=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}}
+
+function yn(box,arr,p){arr.forEach(function(q,i){
+  $(box).insertAdjacentHTML('beforeend','<div class="yn"><span>'+q+'</span><div class="b">'+
+    '<label><input type="radio" name="'+p+i+'" value="1" data-k="'+p+i+'"><b>نعم</b></label>'+
+    '<label><input type="radio" name="'+p+i+'" value="0" data-k="'+p+i+'"><b>لا</b></label></div></div>');
+});}
+function chips(box,arr,p){arr.forEach(function(q,i){
+  $(box).insertAdjacentHTML('beforeend','<label class="chip"><input type="checkbox" data-k="'+p+i+'"><b>'+q+'</b></label>');
+});}
+chips('sigs',SIGS,'s'); yn('yOut',OUT,'o'); yn('yUnd',UND,'u'); chips('chans',CHANS,'c'); yn('yAcc',ACC,'a');
+
+document.querySelectorAll('[data-k]').forEach(function(el){
+  var k=el.dataset.k;
+  if(el.type==='radio') el.checked = d[k]===el.value;
+  else if(el.type==='checkbox') el.checked=!!d[k];
+  else if(d[k]!==undefined) el.value=d[k];
+  el.addEventListener(el.type==='radio'||el.type==='checkbox'?'change':'input',function(){
+    d[k] = el.type==='checkbox'?el.checked:el.value; save(); gate(); if(cur===7) result();
+  });
+});
+
+var steps=document.querySelectorAll('.step'), dots=$('dots').children, cur=0;
+function go(n){
+  steps[cur].classList.remove('on'); cur=n; steps[cur].classList.add('on');
+  for(var i=0;i<dots.length;i++) dots[i].classList.toggle('on', i<cur);
+  if(cur===7) result();
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('[data-next]').forEach(function(b){b.onclick=function(){go(cur+1)}});
+document.querySelectorAll('[data-back]').forEach(function(b){b.onclick=function(){go(cur-1)}});
+function gate(){ document.querySelectorAll('[data-need]').forEach(function(b){ b.disabled=!String(d[b.dataset.need]||'').trim(); }); }
+gate();
+
+function n(k){var v=parseFloat(d[k]);return isNaN(v)?null:v}
+function fmt(x){return Math.round(x).toLocaleString('en-US')}
+function yes(p,len){var c=0;for(var i=0;i<len;i++) if(d[p+i]==='1') c++; return c;}
+function cnt(p,len){var c=0;for(var i=0;i<len;i++) if(d[p+i]) c++; return c;}
+
+var GAPS={
+  dem:{name:'الطلب',
+    t:'الطلب لسا مش مثبت',
+    p:'الناس ممكن تكون بحاجة لخدمتك، بس الأرقام ما بتقول إنها مستعدة تشتري. قبل ما تصرفي على تسويق، لازم تتأكدي إنه في طلب.',
+    d:'احكي مع 5 عميلات سابقات أو محتملات: شو المشكلة بكلماتهم، شو جرّبوا قبل، وقديش مستعدين يدفعوا ليحلّوها. سجّلي الكلمات بالزبط.'},
+  conv:{name:'الطلب',
+    t:'في اهتمام، بس قليل بيشتروا',
+    p:'الناس بتسأل، يعني الطلب موجود. الفجوة بالعرض أو بالثقة أو بالطريق من السؤال للدفع.',
+    d:'اعرضي الخدمة على 3 أشخاص مناسبين، بدون ضغط، وسجّلي كل سؤال واعتراض. هدول هم اللي لازم يتصلّحوا بالعرض.'},
+  out:{name:'الصورة من برّا',
+    t:'من برّا، خدمتك مش ظاهرة',
+    p:'اللي بتعرفك بتفهمك. بس اللي بتوصل جديد بتشوف صفحة ما بتحكيلها لمين الخدمة ولا شو النتيجة. وبتكمّل وبتروح.',
+    d:'صلّحي البايو بجملة وحدة: لمين، شو المشكلة، وشو النتيجة. وانشري بوست واحد فيه نتيجة حقيقية لعميلة.'},
+  und:{name:'الفهم',
+    t:'الناس مش فاهمة شو بتعطي',
+    p:'لما الناس ما بتفهم القيمة، بتقارن بالسعر بس. وهون بيبلّش «غالي» وبتبلّشي تنزّلي بالسعر.',
+    d:'ابعتي جملتك لـ3 أشخاص من برّا البزنس واطلبي منهم يشرحوا بكلماتهم شو بتعملي. وين ما فهموا، هناك بتبلّشي.'},
+  acc:{name:'الوصول',
+    t:'الطريق لعندك مش واضح',
+    p:'حتى لو الخدمة مطلوبة ومفهومة، إذا ما في طريق ثابت يجيب ناس ويوصّلهم للحجز، الدخل بيضل مرتبط بالصدفة.',
+    d:'ارجعي لكل وحدة سألت بآخر 60 يوم وما اشترت، وابعتيلها رسالة متابعة شخصية وحدة. وحطّي رابط حجز واحد واضح بالبايو.'}
+};
+
+function result(){
+  var a=n('asked'), b=n('bought');
+  var sig=cnt('s',SIGS.length);
+  var dem;
+  if(!a) dem = Math.min(40, sig*12);
+  else { var conv=b!==null? b/a : 0; dem = Math.round(Math.min(1,conv/0.4)*70 + Math.min(sig,3)*10); }
+  var out = Math.round(yes('o',OUT.length)/OUT.length*100);
+  var und = Math.round((UND.length-yes('u',UND.length))/UND.length*70 + (String(d.one||'').trim()?30:0));
+  var chs = 0; for(var i=0;i<CHANS.length-1;i++) if(d['c'+i]) chs++;
+  var acc = Math.round(Math.min(chs,3)/3*40 + yes('a',ACC.length)/ACC.length*60);
+  if(d['c'+(CHANS.length-1)]) acc = Math.min(acc,30);
+  var S={dem:Math.min(100,dem),out:out,und:Math.min(100,und),acc:Math.min(100,acc)};
+  var names={dem:'الطلب',out:'الصورة من برّا',und:'الفهم',acc:'الوصول'};
+  var low='dem'; ['out','und','acc'].forEach(function(k){ if(S[k]<S[low]) low=k; });
+
+  var h='';
+  ['dem','out','und','acc'].forEach(function(k){
+    h+='<div class="bar'+(k===low?' low':'')+'"><div class="t"><span>'+names[k]+'</span><b>'+S[k]+'%</b></div><div class="tr"><div class="fl" style="width:'+Math.max(4,S[k])+'%"></div></div></div>';
+  });
+  $('bars').innerHTML=h;
+
+  var G = low==='dem' ? (a && b!==null && b/a<0.3 ? GAPS.conv : GAPS.dem) : GAPS[low];
+  var p = G.p;
+  if(low==='dem' && a && b!==null) p = 'من كل 10 سألوا، اشترى '+(Math.round(b/a*100)/10)+'. '+p;
+  if(low==='acc' && chs===1 && d.c0) p = 'كل العميلات بيجوا من التوصيات. هاد منيح، بس ما بيتحكم فيه حدا. '+p;
+  $('gapT').textContent=G.t; $('gapP').textContent=p; $('decT').textContent=G.d;
+
+  var pr=n('price'), g=n('goal'), hr=n('hrs'), cap=n('cap'), m='';
+  if(pr!==null && g!==null) m+='<div><b>$'+fmt(pr*g)+'</b><small>هدف شهري</small></div>';
+  if(hr!==null && g!==null) m+='<div><b>'+fmt(hr*g)+'</b><small>ساعة مطلوبة</small></div>';
+  if(cap) m+='<div><b>'+fmt(cap)+'</b><small>ساعة عندك</small></div>';
+  $('money').innerHTML=m; $('money').style.display=m?'flex':'none';
+  var need=(hr!==null&&g!==null)?hr*g:null;
+  if(need!==null && cap && need>cap){
+    $('warn').hidden=false;
+    $('warn').innerHTML='وانتبهي: هدفك بده <bdi>'+fmt(need)+'</bdi> ساعة وعندك <bdi>'+fmt(cap)+'</bdi>. بهالسعر وهالمبنى الهدف ما بيتحقق مهما اشتغلتي. البزنس بده نظام، مش ساعات أكثر.';
+  } else $('warn').hidden=true;
+
+  var L=['مرحبا ريما، هاي نتيجتي من فحص «هل خدمتك فعلًا مطلوبة؟»',''];
+  L.push('الخدمة: '+(d.svc||'-')+(d.who?' (لـ'+d.who+')':''));
+  L.push('الطلب '+S.dem+'%، الصورة من برّا '+S.out+'%، الفهم '+S.und+'%، الوصول '+S.acc+'%');
+  if(a!==null) L.push('سألوا '+a+'، اشتروا '+(b===null?'-':b));
+  if(d.one) L.push('شو بعطي: '+d.one);
+  if(pr!==null && g!==null) L.push('السعر $'+fmt(pr)+'، الهدف '+g+' بالشهر = $'+fmt(pr*g));
+  L.push('الفجوة: '+G.t);
+  L.push('قراري لهالأسبوع: '+G.d);
+  var MOM={
+    dem:'بمومنتوم بنفحص سوا مين فعلًا بحاجة لخدمتك ومستعد يدفع، وبنبني العرض حواليه قبل ما تصرفي دولار على تسويق.',
+    conv:'بمومنتوم بنبني العرض والسعر والطريق من أول سؤال للدفع، عشان الاهتمام اللي عندك أصلًا يصير مبيعات.',
+    out:'بمومنتوم بنبني الصورة من برّا: رسالة واضحة، بايو بيحكي لمين الخدمة، ومحتوى بيوصّل لطلب الخدمة.',
+    und:'بمومنتوم بنبني رسالة وحدة واضحة وعرض بتنفهم قيمته قبل ما حدا يسأل «قديش؟».',
+    acc:'بمومنتوم بنبني نظام جذب ومتابعة ثابت، عشان العميلات يوصلولك كل شهر مش بالصدفة.'
+  };
+  var mp = MOM[G===GAPS.conv?'conv':low] + ' مرافقة <bdi>90</bdi> يوم، خطوة خطوة، على البزنس تبعك.';
+  if(need!==null && cap && need>cap) mp += ' وكمان بنعيد بناء السعر والباقات عشان دخلك يكبر بدون ساعات أكثر.';
+  $('momP').innerHTML = mp;
+
+  var base=L.join('\n');
+  $('waYes').href='https://wa.me/'+WA+'?text='+encodeURIComponent(base+'\n\nشفت إنه Momentum ممكن يساعدني، وبدي ترجعيلي بالتفاصيل.');
+  $('waNo').href='https://wa.me/'+WA+'?text='+encodeURIComponent(base);
+}
+
+$('again').onclick=function(){ try{localStorage.removeItem(KEY)}catch(e){} location.reload(); };
+})();
+</script>
+</body>
+</html>
