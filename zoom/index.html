@@ -44,6 +44,17 @@ h2{font-size:clamp(24px,3.6vw,36px);margin-bottom:12px}
 .lead{color:var(--mut);font-size:clamp(17px,2vw,20px)}
 .eyebrow{color:var(--gold);font-weight:800;font-size:14px;letter-spacing:1.5px;margin-bottom:10px}
 
+/* شريط متحرك */
+.bar{position:sticky;top:0;z-index:60;background:var(--gold);color:#fff;overflow:hidden;padding:10px 0}
+.bar .track{display:flex;width:max-content;direction:ltr;animation:tick 34s linear infinite}
+.bar:hover .track{animation-play-state:paused}
+.bar .grp{display:flex;flex-shrink:0}
+.bar span{white-space:nowrap;font-weight:800;font-size:15px;padding:0 22px;position:relative;direction:rtl}
+.bar span::after{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:#fff;opacity:.5}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.bar .track{animation:none;width:100%;justify-content:center}.bar .grp[aria-hidden]{display:none}}
+@media(max-width:860px){.bar{padding:8px 0}.bar span{font-size:13px;padding:0 16px}.bar .track{animation-duration:26s}}
+
 /* هيرو */
 .hero{background:linear-gradient(180deg,var(--cream2),var(--cream));padding:44px 0 56px}
 .hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
@@ -140,6 +151,13 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:13px;backgrou
 </head>
 <body>
 
+<div class="bar">
+  <div class="track">
+    <div class="grp"><span>🗓️ الأحد 15.11.2026</span><span>🕣 الساعة 20:30</span><span>💻 Zoom لايف</span><span>🎁 بدون تكلفة</span><span>📍 لمقدمي الخدمات وأصحاب البزنس</span><span>🔥 المقاعد محدودة</span><span>🗓️ الأحد 15.11.2026</span><span>🕣 الساعة 20:30</span><span>💻 Zoom لايف</span><span>🎁 بدون تكلفة</span><span>📍 لمقدمي الخدمات وأصحاب البزنس</span><span>🔥 المقاعد محدودة</span></div>
+    <div class="grp" aria-hidden="true"><span>🗓️ الأحد 15.11.2026</span><span>🕣 الساعة 20:30</span><span>💻 Zoom لايف</span><span>🎁 بدون تكلفة</span><span>📍 لمقدمي الخدمات وأصحاب البزنس</span><span>🔥 المقاعد محدودة</span><span>🗓️ الأحد 15.11.2026</span><span>🕣 الساعة 20:30</span><span>💻 Zoom لايف</span><span>🎁 بدون تكلفة</span><span>📍 لمقدمي الخدمات وأصحاب البزنس</span><span>🔥 المقاعد محدودة</span></div>
+  </div>
+</div>
+
 <!-- ============ هيرو ============ -->
 <section class="hero">
   <div class="wrap hgrid">
@@ -169,7 +187,7 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:13px;backgrou
 
     <div class="heroimg">
       <div class="portrait">
-        <img src="rima-desk.jpg" alt="ريما يعقوب، مدربة ومستشارة أعمال">
+        <img src="rima-office.jpg" alt="ريما يعقوب، مدربة ومستشارة أعمال">
       </div>
       <div class="pbadge">
         <b>ريما يعقوب</b>
@@ -187,6 +205,8 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:13px;backgrou
     <ul>
       <li><span class="x">✕</span> بتشتغل أكتر من أي وقت، والربح مش عم يكبر معك.</li>
       <li><span class="x">✕</span> في شهر منيح وشهر لأ، وما بتعرف ليش.</li>
+      <li><span class="x">✕</span> كل الوقت بتدوّر عالعميل الجاي؟</li>
+      <li><span class="x">✕</span> بتبدأ الشهر من إعلان إضافي وتسويق إضافي.. بس بالنهاية الربح ما بيترجم الاستثمار اللي استثمرته.</li>
       <li><span class="x">✕</span> كل قرار، كل عميل وكل بيعة لازم تمرق من عندك.</li>
     </ul>
     <div class="punch">
@@ -199,14 +219,15 @@ footer{padding:28px 0;text-align:center;color:var(--mut);font-size:13px;backgrou
 <!-- ============ شو رح تطلع ============ -->
 <section class="dark">
   <div class="wrap">
-    <div class="eyebrow">مع شو رح تطلع من اللقاء</div>
+    <div class="eyebrow">لمقدمي الخدمات · استراتيجية ريما</div>
     <h2>مش بس كيف تسوّق وتبيع.<br>كيف تبني البزنس نفسه صح</h2>
+    <p style="color:#D5E1EA;margin-top:6px">استراتيجية ريما بتساعد صاحب البزنس:</p>
     <ul class="checks">
-      <li><span class="v">✓</span> تعرف أي خدمات فعلًا بتجيبلك ربح، وأي خدمات بتاكل وقتك.</li>
-      <li><span class="v">✓</span> تبني عروض واضحة للعملاء المناسبين.</li>
-      <li><span class="v">✓</span> تنظّم التسويق والمبيعات ضمن مسار واحد.</li>
-      <li><span class="v">✓</span> تاخد قرارات حسب الأرقام، بدل التخمين.</li>
-      <li><span class="v">✓</span> تقلّل اعتماد نمو البزنس على مجهودك الشخصي كل يوم.</li>
+      <li><span class="v">✓</span> يعرف أي خدمات فعلًا بتجيب ربح.</li>
+      <li><span class="v">✓</span> يبني عروض واضحة للعملاء المناسبين.</li>
+      <li><span class="v">✓</span> ينظّم التسويق والمبيعات ضمن مسار واحد.</li>
+      <li><span class="v">✓</span> يتخذ قرارات اعتمادًا على أرقام بدل التخمين.</li>
+      <li><span class="v">✓</span> يقلّل اعتماد نمو البزنس على مجهوده الشخصي المستمر.</li>
     </ul>
     <p style="margin-top:18px;color:#B8C6DA;max-width:760px">درس عملي، مش محاضرة. بنشتغل على البزنس تبعك إنت، وبتطلع بخطة واضحة لـ2027.</p>
     
