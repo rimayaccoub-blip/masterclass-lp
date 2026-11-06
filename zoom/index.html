@@ -329,6 +329,18 @@ var EVENT = {
 })();
 /* Lead: הטופס בדומיין של רב מסר, לכן fbq('track','Lead') צריך לשבת בדף התודה שם. */
 </script>
-<script>(function(){var q=location.search;if(!q)return;var f=document.getElementById("inline-pZXtARyKMcyjq4tEnP87");if(f&&f.src.indexOf("?")<0)f.src=f.src+q;})();</script>
+<script>
+/* UTM + קוד מדינה לפי המבקר → לטופס של אסטרונאוט */
+(function(){
+  var f=document.getElementById("inline-pZXtARyKMcyjq4tEnP87"); if(!f) return;
+  var base=f.src.split("?")[0], p=new URLSearchParams(location.search), done=false;
+  var DIAL={AE:"971",SA:"966",QA:"974",KW:"965",BH:"973",OM:"968",JO:"962",PS:"970",LB:"961",SY:"963",IQ:"964",EG:"20",MA:"212",DZ:"213",TN:"216",LY:"218",SD:"249",YE:"967",TR:"90",US:"1",CA:"1",GB:"44",DE:"49",FR:"33",NL:"31",BE:"32",SE:"46",IT:"39",ES:"34",AT:"43",CH:"41",AU:"61"};
+  function go(){ if(done) return; done=true; var s=p.toString(); if(s) f.src=base+"?"+s; }
+  fetch("https://get.geojs.io/v1/ip/country.json").then(function(r){return r.json();}).then(function(d){
+    var c=d&&d.country, code=DIAL[c]; if(code && !p.has("phone")) p.set("phone","+"+code); go();
+  }).catch(go);
+  setTimeout(go,2500);
+})();
+</script>
 </body>
 </html>
