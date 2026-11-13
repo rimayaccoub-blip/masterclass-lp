@@ -318,3 +318,10 @@ html[lang="en"] .post-body h2{font-family:var(--en-display);font-weight:500}
 .post-cta p{font-size:18px;color:var(--ink)}
 .post-body section{padding:0}
 .post-head .back{display:block;width:max-content}
+.voice-feature{border-top:1px solid var(--ink);padding:56px 0 56px;display:grid;grid-template-columns:1fr;gap:26px}
+.voice-feature blockquote{font-size:clamp(24px,2.6vw,36px);line-height:1.6;color:var(--ink);max-width:1000px}
+html[lang="en"] .voice-feature blockquote{line-height:1.35}
+.voice-feature figcaption{font-size:14px;color:var(--muted)}
+.voice-feature figcaption::before{content:"";display:inline-block;width:28px;height:1px;background:var(--copper);vertical-align:middle;margin-inline-end:12px}
+.voice blockquote{font-size:clamp(18px,1.5vw,21px)}
+.post-body .sources{font-size:13.5px!important;color:var(--muted);margin-top:36px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7}
