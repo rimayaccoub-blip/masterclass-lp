@@ -231,3 +231,9 @@ html[lang="en"] .step h3 small{display:none}
   .hero-figure img{aspect-ratio:4/4.4}
   .hero-figure{margin-inline:10px}
 }
+/* hero: fit the first screen */
+@media(min-width:901px){
+  .hero{padding:140px 0 96px}
+  .hero-grid{align-items:center}
+  .hero-figure img{max-height:calc(100vh - 200px);min-height:520px;aspect-ratio:auto;height:calc(100vh - 200px)}
+}
