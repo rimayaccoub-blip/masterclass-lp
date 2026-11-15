@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <meta property="og:type" content="website">
 <meta property="og:title" content="تسجيل ويبنار «2027 سنة نمو لبزنسك» مع ريما يعقوب">
-<meta property="og:description" content="التسجيل متاح للمشاهدة حتى الثلاثاء 17.11 الساعة 21:00 بتوقيت القدس.">
+<meta property="og:description" content="التسجيل متاح للمشاهدة حتى الأربعاء 18.11 الساعة 21:00 بتوقيت القدس.">
 <meta property="og:image" content="https://masterclass.rimayaqub.com/zoom/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,7 @@ h2{font-size:clamp(23px,3.4vw,34px);margin-bottom:12px}
 .cd b{display:block;font-size:20px;line-height:1.3}
 .cd span{font-size:11px;color:var(--gold2)}
 
-.player{max-width:880px;margin:26px auto 0;background:#000;border-radius:18px;overflow:hidden;aspect-ratio:16/9;border:1px solid var(--line);box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.player{max-width:880px;margin:26px auto 0;background:#000;border-radius:18px;overflow:hidden;aspect-ratio:16/10;border:1px solid var(--line);box-shadow:0 26px 60px rgba(0,0,0,.5)}
 .player iframe,.player video{width:100%;height:100%;border:0;display:block}
 .notice{max-width:880px;margin:26px auto 0;background:var(--card);border:1px dashed var(--line);border-radius:18px;padding:44px 22px;text-align:center}
 .notice b{display:block;font-size:20px;margin-bottom:6px}
@@ -95,7 +95,7 @@ footer{padding:28px 0;text-align:center;color:#8196A8;font-size:13px;background:
     <div class="kicker">تسجيل الويبنار</div>
     <h1>2027 سنة نمو لبزنسك<small>كيف تزيد دخلك وأرباحك من تقديم خدماتك</small></h1>
     <div id="live">
-      <p class="until">التسجيل متاح للمشاهدة حتى الثلاثاء <bdi>17.11</bdi> الساعة <bdi>21:00</bdi> بتوقيت القدس</p>
+      <p class="until">التسجيل متاح للمشاهدة حتى الأربعاء <bdi>18.11</bdi> الساعة <bdi>21:00</bdi> بتوقيت القدس</p>
       <div class="cd" id="cd">
         <div><b>--</b><span>يوم</span></div><div><b>--</b><span>ساعة</span></div><div><b>--</b><span>دقيقة</span></div><div><b>--</b><span>ثانية</span></div>
       </div>
@@ -157,8 +157,8 @@ footer{padding:28px 0;text-align:center;color:#8196A8;font-size:13px;background:
 <script>
 /* ===== כל מה שצריך לעדכן נמצא כאן ===== */
 var REPLAY = {
-  videoUrl: '',                               // קישור YouTube / Vimeo / mp4. כל עוד ריק מוצג "التسجيل قيد التجهيز"
-  expires: Date.UTC(2026,10,17,19,0)          // 17.11.2026 21:00 שעון ישראל
+  videoUrl: '/tasjeel/replay.mp4',                             // קישור YouTube / Vimeo / mp4. כל עוד ריק מוצג "التسجيل قيد التجهيز"
+  expires: Date.UTC(2026,10,18,19,0)          // 18.11.2026 21:00 שעון ישראל
 };
 
 (function(){
@@ -170,7 +170,7 @@ var REPLAY = {
     if(m) return '<iframe src="https://www.youtube.com/embed/'+m[1]+'?rel=0" allow="accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="تسجيل الويبنار"></iframe>';
     m = u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
     if(m) return '<iframe src="https://player.vimeo.com/video/'+m[1]+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="تسجيل الويبنار"></iframe>';
-    return '<video controls playsinline preload="metadata" src="'+u+'"></video>';
+    return '<video controls playsinline preload="metadata" poster="/tasjeel/poster.jpg" src="'+u+'"></video>';
   }
 
   if(!live){
