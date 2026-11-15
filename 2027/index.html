@@ -293,7 +293,6 @@ footer{padding:28px 0;text-align:center;color:#8F887B;font-size:13px;background:
       </div>
       <a class="btn cta" id="joinbtn" href="#">أريد الانضمام إلى البرنامج ←</a>
       <a class="btn ghost" id="joinbtn3" href="#" style="margin:12px auto 0">الدفع على <bdi>3</bdi> دفعات × <bdi>398$</bdi> ←</a>
-      <a class="btn wa" id="wacur" href="#">أرغب بالدفع بعملة أخرى (واتساب)</a>
       <p class="micro" style="margin:14px auto 0">البداية: الثلاثاء <bdi>1.12.2026</bdi> الساعة <bdi>18:30</bdi> بتوقيت القدس. يُغلق التسجيل يوم <bdi>26.11</bdi>.</p>
     </div>
   </div>
@@ -333,10 +332,8 @@ var OFFER = {
   WORLD: { full:'1,395$',  early:'1,195$',  note:'سعر خاص للمجموعة الأولى',
            pay:'https://pay.rimayaqub.com/payment-link/6af9c8b3906a8b62055d6a28',     // 1,195$ תשלום אחד
            pay3:'https://pay.rimayaqub.com/payment-link/6af9c94821a48a3872d2636e' },  // 3 × 398$
-  wa: '972559311440',
-  waText: 'مرحبا، أريد الانضمام إلى برنامج «خطة 2027»',
-  waCurText: 'مرحبا، أريد الانضمام إلى برنامج «خطة 2027» وأرغب بالدفع بعملة أخرى'
-  /* pay: קישור תשלום ישיר. כל עוד ריק, הכפתור פותח וואטסאפ. */
+  after: 'https://pay.rimayaqub.com/widget/bookings/rima-program-call'
+  /* after: לאן הכפתור מוביל אחרי שהמחיר המוקדם נגמר (שיחה קצרה בקלנדר). בלי וואטסאפ בדף. */
 };
 
 (function(){
@@ -351,12 +348,10 @@ var OFFER = {
     document.getElementById('ptag').textContent = early ? 'سعر التسجيل المبكر' : 'الاستثمار في البرنامج';
     document.getElementById('pbonus').hidden = !early;
     document.getElementById('pinst').hidden = !early;
-    document.getElementById('wacur').href = 'https://wa.me/'+OFFER.wa+'?text='+encodeURIComponent(OFFER.waCurText + (src ? ' ('+src+')' : ''));
     document.getElementById('topbar').hidden = !early;
     document.getElementById('cd').hidden = !early;
-    /* קישורי התשלום הם של המחיר המוקדם (1,195$ / 3×398$). אחרי שהמחיר המוקדם נגמר, הכפתור חוזר לוואטסאפ */
-    var wa = 'https://wa.me/'+OFFER.wa+'?text='+encodeURIComponent(OFFER.waText + (src ? ' ('+src+')' : ''));
-    document.getElementById('joinbtn').href = (early && r.pay) ? r.pay : wa;
+    /* קישורי התשלום הם של המחיר המוקדם (1,195$ / 3×398$). אחרי שהמחיר המוקדם נגמר, הכפתור מוביל לקלנדר */
+    document.getElementById('joinbtn').href = (early && r.pay) ? r.pay : OFFER.after;
     var j3 = document.getElementById('joinbtn3');
     j3.href = r.pay3 || '#';
     j3.hidden = !(early && r.pay3);
