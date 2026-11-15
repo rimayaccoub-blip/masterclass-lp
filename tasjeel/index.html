@@ -142,11 +142,10 @@ footer{padding:28px 0;text-align:center;color:#8196A8;font-size:13px;background:
       <ul class="list">
         <li><span class="v">✓</span> ستة لقاءات أسبوعية مباشرة عبر Zoom مع ريما.</li>
         <li><span class="v">✓</span> حاسبات، مساعد ذكي، وباني الخطة الذي يُخرج لك خطة 2027 وخطة عمل لـ90 يومًا.</li>
-        <li><span class="v">✓</span> جلسة شخصية بعد التخرّج، مجموعة واتساب، وتسجيلات جميع اللقاءات.</li>
+        <li><span class="v">✓</span> جلسة شخصية بعد التخرّج، وتسجيلات جميع اللقاءات.</li>
       </ul>
       <p class="early" id="early">سعر التسجيل المبكر، ومعه كورس «معادلة التسعير»، سارٍ حتى الثلاثاء <bdi>17.11</bdi> الساعة <bdi>21:00</bdi>.</p>
       <a class="btn" id="joinbtn" href="#">أريد التسجيل في البرنامج ←</a>
-      <p class="micro">بعد الضغط تُفتح محادثة واتساب مع مكتب ريما لإتمام التسجيل.</p>
       <a class="btn ghost" id="more" href="/2027/">تفاصيل البرنامج والسعر</a>
     </div>
   </div>
@@ -159,9 +158,7 @@ footer{padding:28px 0;text-align:center;color:#8196A8;font-size:13px;background:
 /* ===== כל מה שצריך לעדכן נמצא כאן ===== */
 var REPLAY = {
   videoUrl: '',                               // קישור YouTube / Vimeo / mp4. כל עוד ריק מוצג "التسجيل قيد التجهيز"
-  expires: Date.UTC(2026,10,17,19,0),         // 17.11.2026 21:00 שעון ישראל
-  wa: '972559311440',
-  waText: 'مرحبا، شاهدت الويبنار وأريد التسجيل في برنامج «خطة 2027»'
+  expires: Date.UTC(2026,10,17,19,0)          // 17.11.2026 21:00 שעון ישראל
 };
 
 (function(){
@@ -186,7 +183,7 @@ var REPLAY = {
     document.getElementById('soon').hidden = false;
   }
 
-  document.getElementById('joinbtn').href = 'https://wa.me/'+REPLAY.wa+'?text='+encodeURIComponent(REPLAY.waText + (src ? ' ('+src+')' : ''));
+  document.getElementById('joinbtn').href = '/2027/' + (q.toString() ? '?' + q.toString() : '') + '#join';
   if(q.toString()) document.getElementById('more').href = '/2027/?' + q.toString();
   document.getElementById('joinbtn').addEventListener('click', function(){
     if(window.fbq) fbq('track','Contact',{content_name:'Khitta 2027 Join (replay)'});
