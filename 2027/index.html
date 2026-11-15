@@ -33,8 +33,8 @@ src="https://www.facebook.com/tr?id=914783969729003&ev=PageView&noscript=1" alt=
 
 <style>
 :root{
-  --bg:#0F3B3A; --bg2:#165552; --card:#1B5E5A; --deep:#0B2C2B; --line:rgba(255,255,255,.16);
-  --blue:#A9E0D8; --gold:#F2B544; --gold2:#F6CB73; --ink:#F4FAF9; --mut:#C2D9D6; --max:1040px;
+  --bg:#0B0B0B; --bg2:#161412; --card:#1A1815; --deep:#050505; --line:rgba(212,175,95,.22);
+  --blue:#E9D3A0; --gold:#D4AF5F; --gold2:#E6C77E; --ink:#F7F3EA; --mut:#BDB5A6; --max:1040px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -47,23 +47,23 @@ h2{font-size:clamp(24px,3.6vw,36px);margin-bottom:14px}
 .eyebrow{color:var(--gold2);font-weight:800;font-size:14px;letter-spacing:1px;margin-bottom:10px}
 .lead{color:var(--mut);font-size:clamp(17px,2vw,20px);max-width:60ch}
 
-.topbar{position:sticky;top:0;z-index:60;background:var(--gold);color:#13293D;text-align:center;font-weight:800;font-size:14px;padding:9px 14px}
-.topbar a{color:#13293D}
+.topbar{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,#C99A45,#E9CC85,#C99A45);color:#0B0B0B;text-align:center;font-weight:800;font-size:14px;padding:9px 14px}
+.topbar a{color:#0B0B0B}
 
 .hero{background:linear-gradient(180deg,var(--bg2),var(--bg));padding:54px 0 60px}
 .hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}
 .kicker{display:inline-block;background:var(--deep);color:var(--gold2);border-radius:100px;padding:7px 18px;font-size:14px;font-weight:800;margin-bottom:18px}
 .hero h1 small{display:block;font-size:.36em;color:var(--blue);margin-top:10px;line-height:1.5}
 .hero .lead{margin-top:18px}
-.portrait{border-radius:20px;overflow:hidden;border:6px solid #F2B544;box-shadow:0 26px 60px rgba(0,0,0,.45);aspect-ratio:4/5}
+.portrait{border-radius:20px;overflow:hidden;border:6px solid var(--gold);box-shadow:0 26px 60px rgba(0,0,0,.45);aspect-ratio:4/5}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px;max-width:560px}
 .facts div{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;line-height:1.45}
 .facts span{display:block;font-size:12px;color:var(--mut);font-weight:700}
 .facts b{display:block;font-size:15px;color:#fff}
 
-.btn{display:block;width:100%;max-width:520px;margin-top:22px;background:var(--gold);color:#13293D;border:0;border-radius:100px;padding:18px 22px;font-weight:800;font-size:19px;font-family:inherit;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:.2s;text-align:center;text-decoration:none}
-.btn:hover{background:#F6C55E;transform:translateY(-2px)}
+.btn{display:block;width:100%;max-width:520px;margin-top:22px;background:linear-gradient(135deg,#E9CC85,#C99A45);color:#0B0B0B;border:0;border-radius:100px;padding:18px 22px;font-weight:800;font-size:19px;font-family:inherit;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:.2s;text-align:center;text-decoration:none}
+.btn:hover{background:linear-gradient(135deg,#F0D899,#D4A953);transform:translateY(-2px)}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none;font-size:16px;padding:13px 20px}
 .btn.wa{background:transparent;color:#fff;border:1.5px solid #25D366;box-shadow:none;font-size:16px;padding:13px 20px}
 .btn.wa:hover{background:rgba(37,211,102,.15)}
@@ -95,7 +95,7 @@ h2{font-size:clamp(24px,3.6vw,36px);margin-bottom:14px}
 .shot{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
 .shot img{width:100%;border-radius:9px;display:block}
 .shot p{color:var(--mut);font-size:14px;margin-top:10px;font-weight:700}
-.disc{font-size:13px;color:#9DBDB9;margin-top:14px}
+.disc{font-size:13px;color:#8F887B;margin-top:14px}
 
 .price{max-width:620px;margin:0 auto;background:var(--card);border:1.5px solid var(--gold);border-radius:22px;padding:32px 24px;text-align:center;box-shadow:0 24px 56px rgba(0,0,0,.4)}
 .price .old{color:var(--mut);font-size:18px;text-decoration:line-through}
@@ -113,10 +113,10 @@ details{background:var(--card);border:1px solid var(--line);border-radius:14px;p
 summary{font-weight:800;cursor:pointer;font-size:18px}
 details p{color:var(--mut);margin-top:10px}
 
-.final{background:linear-gradient(160deg,#1F6F6B,var(--deep));text-align:center}
+.final{background:linear-gradient(160deg,#211C14,var(--deep));text-align:center}
 .final .btn{margin:24px auto 0}
 .final .micro{margin:10px auto 0}
-footer{padding:28px 0;text-align:center;color:#9DBDB9;font-size:13px;background:var(--deep)}
+footer{padding:28px 0;text-align:center;color:#8F887B;font-size:13px;background:var(--deep)}
 .sticky{display:none}
 @media(max-width:860px){
   .hgrid,.weeks,.two{grid-template-columns:1fr}
@@ -316,7 +316,7 @@ footer{padding:28px 0;text-align:center;color:#9DBDB9;font-size:13px;background:
 <section class="final">
   <div class="wrap">
     <h2>الفجوة بين مكانك اليوم<br>والمكان الذي تريده في 2027 هي خطوة واحدة</h2>
-    <p class="lead" style="margin:12px auto 0;color:#D5E1EA">لكن يجب أن تراها بالأرقام، لا بالإحساس.</p>
+    <p class="lead" style="margin:12px auto 0;color:#E2D9C6">لكن يجب أن تراها بالأرقام، لا بالإحساس.</p>
     <a class="btn cta" href="#join">أريد الانضمام إلى البرنامج ←</a>
     <p class="micro">ريما يعقوب، مدربة ومستشارة أعمال</p>
   </div>
