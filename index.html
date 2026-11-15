@@ -2,6 +2,15 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<script>
+/* 15.11.2026: הדף הזה (מאסטרקלאס 23.9) ישן ולא מוצג יותר.
+   עד סוף הוובינר (15.11 21:15 שעון ישראל) מפנים לדף ההרשמה, ואחריו לדף ההקלטה. */
+(function(){
+  var after = Date.now() > Date.UTC(2026,10,15,19,15);
+  location.replace((after ? '/tasjeel/' : '/zoom/') + location.search);
+})();
+</script>
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>REVENUE MAP · ماستر كلاس خريطة الدخل | ريما يعقوب</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
