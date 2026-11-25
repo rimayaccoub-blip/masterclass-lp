@@ -407,3 +407,6 @@ html[lang="en"] .compare h4{font-family:var(--en-display);font-weight:600;font-s
 .compare li{padding-inline-start:18px;position:relative}
 .compare li::before{content:"";position:absolute;inset-inline-start:0;top:.8em;width:8px;height:1px;background:var(--copper)}
 @media(max-width:700px){.compare{grid-template-columns:1fr}.compare>div:first-child{border-inline-end:0;border-bottom:1px solid var(--ink)}.keystat{flex-direction:column;align-items:flex-start;gap:12px}.post-body .case,.exercise{padding:28px 24px}}
+
+.post-body .course-box p{color:var(--ivory)}
+.post-body .course-box .btn{margin-top:6px}
